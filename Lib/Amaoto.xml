@@ -69,6 +69,18 @@
             ループするかどうか。
             </summary>
         </member>
+        <member name="T:Amaoto.Animation.Blank">
+            <summary>
+            何もしない
+            </summary>
+        </member>
+        <member name="M:Amaoto.Animation.Blank.#ctor(System.Int32,System.Int32)">
+            <summary>
+            正真正銘、何もしない。
+            </summary>
+            <param name="param">維持させたい値</param>
+            <param name="timeNs">維持させる時間。</param>
+        </member>
         <member name="T:Amaoto.Animation.EaseIn">
             <summary>
             イーズインを行うクラス。
@@ -172,6 +184,78 @@
             <param name="startPoint">始点。</param>
             <param name="endPoint">終点。</param>
             <param name="timeNs">移動にかける時間。</param>
+        </member>
+        <member name="T:Amaoto.Animation.Sequencer">
+            <summary>
+            アニメーション シーケンサー
+            複数のAmaoto.Animation.Animatorを追加して、アニメーションを連続的に再生します。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Animation.Sequencer.#ctor">
+            <summary>
+            シーケンサーを初期化します。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Animation.Sequencer.AddAnimator(Amaoto.Animation.Animator)">
+            <summary>
+            アニメーターを追加する。ループするアニメーターは使えません。
+            </summary>
+            <param name="animator">アニメーター。</param>
+            <returns>シーケンサー。メソッドチェーンできます。</returns>
+        </member>
+        <member name="M:Amaoto.Animation.Sequencer.Update">
+            <summary>
+            アニメーターのタイマーを更新する。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Animation.Sequencer.Start">
+            <summary>
+            シーケンサーを開始する。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Animation.Sequencer.Stop">
+            <summary>
+            シーケンサーを止める。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Animation.Sequencer.Reset">
+            <summary>
+            シーケンサーをリセットして、再利用可能な状態にする。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Animation.Sequencer.GetCurrentAnimator">
+            <summary>
+            現在のアニメーターのインスタンスを返す。
+            </summary>
+            <returns>現在のアニメーターのインスタンス。</returns>
+        </member>
+        <member name="M:Amaoto.Animation.Sequencer.GetCurrentAnimatorIndex">
+            <summary>
+            現在のアニメーターの位置を返す。
+            </summary>
+            <returns>現在のアニメーターの位置。</returns>
+        </member>
+        <member name="M:Amaoto.Animation.Sequencer.IsFinished">
+            <summary>
+            アニメーションが全て完了しているか
+            </summary>
+            <returns>アニメーションが全て完了しているかどうか。</returns>
+        </member>
+        <member name="M:Amaoto.Animation.Sequencer.GetAnimation">
+            <summary>
+            現在のアニメーターからアニメーション結果を得る。
+            </summary>
+            <returns>アニメーション結果。</returns>
+        </member>
+        <member name="P:Amaoto.Animation.Sequencer.Animators">
+            <summary>
+            アニメーターのリスト。
+            </summary>
+        </member>
+        <member name="P:Amaoto.Animation.Sequencer.Index">
+            <summary>
+            現在どのアニメーターを再生してるかのインデックス。
+            </summary>
         </member>
         <member name="T:Amaoto.ConfigManager">
             <summary>
