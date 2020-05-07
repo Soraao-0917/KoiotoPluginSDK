@@ -1,0 +1,148 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KoiotoPlugin</name>
+    </assembly>
+    <members>
+        <member name="T:Koioto.Plugin.Overlay">
+            <summary>
+            A Class is base of Koioto overlay plugin.
+            Please inherit it to make Koioto overlay plugin.
+            </summary>
+        </member>
+        <member name="P:Koioto.Plugin.Overlay.Name">
+            <summary>
+            Name of plugin.
+            </summary>
+        </member>
+        <member name="P:Koioto.Plugin.Overlay.Creator">
+            <summary>
+            Your name.
+            </summary>
+        </member>
+        <member name="P:Koioto.Plugin.Overlay.Description">
+            <summary>
+            Description of plugin.
+            </summary>
+        </member>
+        <member name="P:Koioto.Plugin.Overlay.Version">
+            <summary>
+            Version of plugin.
+            </summary>
+        </member>
+        <member name="M:Koioto.Plugin.Overlay.OnEnable">
+            <summary>
+            The method processing when plugin was enabled.
+            </summary>
+        </member>
+        <member name="M:Koioto.Plugin.Overlay.OnDisable">
+            <summary>
+            The method processing when plugin was disabled.
+            </summary>
+        </member>
+        <member name="M:Koioto.Plugin.Overlay.OnUpdate">
+            <summary>
+            The method processing other than drawing.
+            </summary>
+        </member>
+        <member name="M:Koioto.Plugin.Overlay.OnDraw">
+            <summary>
+            The method calls when drawing something.
+            </summary>
+        </member>
+        <member name="M:Koioto.Plugin.Overlay.OnSelectedSong(Koioto.Support.Playable[],Koioto.Support.ChartInfo)">
+            <summary>
+            The method calls when decided song.
+            </summary>
+            <param name="playable">Playable[]</param>
+            <param name="chartInfo">Chart infomation</param>
+        </member>
+        <member name="M:Koioto.Plugin.Overlay.OnHitNote(Koioto.Support.FileReader.Chip,System.Int32)">
+            <summary>
+            The method calls when hit chips.
+            </summary>
+            <param name="chip">Chip</param>
+        </member>
+        <member name="M:Koioto.Plugin.Overlay.OnRoll(Koioto.Support.FileReader.Chip,System.Int32)">
+            <summary>
+            The method calls when rolling.
+            </summary>
+            <param name="chip">Chip</param>
+            <param name="player">Player</param>
+        </member>
+        <member name="M:Koioto.Plugin.Overlay.OnBrokeBalloon(Koioto.Support.FileReader.Chip,System.Int32)">
+            <summary>
+            The method calls when broke balloons.
+            </summary>
+            <param name="chip">Chip</param>
+            <param name="player">Player</param>
+        </member>
+        <member name="M:Koioto.Plugin.Overlay.OnChangedCombo(System.Int64,System.Int32)">
+            <summary>
+            The method calls when changed combo.
+            </summary>
+            <param name="combo">Combo</param>
+            <param name="player">Player</param>
+        </member>
+        <member name="M:Koioto.Plugin.Overlay.OnChangedMainScore(System.Int64,System.Int32)">
+            <summary>
+            The method calls when changed main score.
+            </summary>
+            <param name="mainScore">Main score</param>
+            <param name="player">Player</param>
+        </member>
+        <member name="M:Koioto.Plugin.Overlay.OnChangedSubScore(System.Int64,System.Int32)">
+            <summary>
+            The method calls when changed sub score.
+            </summary>
+            <param name="subScore">Sub score</param>
+            <param name="player">Player</param>
+        </member>
+        <member name="T:Koioto.Plugin.IFileReadable">
+            <summary>
+            A Class is base of Koioto file reader plugin.
+            Please inherit it to make Koioto file reader plugin.
+            </summary>
+        </member>
+        <member name="P:Koioto.Plugin.IFileReadable.Name">
+            <summary>
+            Name of plugin.
+            </summary>
+        </member>
+        <member name="P:Koioto.Plugin.IFileReadable.Creator">
+            <summary>
+            Your name.
+            </summary>
+        </member>
+        <member name="P:Koioto.Plugin.IFileReadable.Description">
+            <summary>
+            Description of plugin.
+            </summary>
+        </member>
+        <member name="P:Koioto.Plugin.IFileReadable.Version">
+            <summary>
+            Version of plugin.
+            </summary>
+        </member>
+        <member name="M:Koioto.Plugin.IFileReadable.GetExtensions">
+            <summary>
+            Extensions that can be read by this plugin.
+            </summary>
+        </member>
+        <member name="M:Koioto.Plugin.IFileReadable.GetPlayable(System.String,Koioto.Support.FileReader.Courses)">
+            <summary>
+            Returns Playable[] for play the chart.
+            </summary>
+            <param name="filePath">File's path.</param>
+            <param name="courses">Selected course.</param>
+            <returns>Playable[], ChartInfo</returns>
+        </member>
+        <member name="M:Koioto.Plugin.IFileReadable.GetSelectable(System.String)">
+            <summary>
+            Returns Infomationable for regist the chart.
+            </summary>
+            <param name="filePath">File's path.</param>
+            <returns>Infomationable.</returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,878 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KoiotoSupport</name>
+    </assembly>
+    <members>
+        <member name="T:Koioto.Support.ChartInfo">
+            <summary>
+            演奏画面で使用される、譜面情報を扱うクラス。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.ChartInfo.Title">
+            <summary>
+            各セクションのタイトル。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.ChartInfo.Subtitle">
+            <summary>
+            各セクションのサブタイトル。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.ChartInfo.Artist">
+            <summary>
+            各セクションのアーティスト。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.ChartInfo.Creator">
+            <summary>
+            各セクションの譜面制作者。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.ChartInfo.Audio">
+            <summary>
+            各セクションの音源。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.ChartInfo.Background">
+            <summary>
+            各セクションの背景画像・動画
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.ChartInfo.Movieoffset">
+            <summary>
+            各セクションの動画のオフセット。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.ChartInfo.BPM">
+            <summary>
+            各セクションの初期BPM。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.ChartInfo.Offset">
+            <summary>
+            各セクションのオフセット。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.ChartInfo.Exam">
+            <summary>
+            メドレー時の条件。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.Exam">
+            <summary>
+            メドレーモード時の条件クラス。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.ExamType">
+            <summary>
+            条件のタイプ。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.ExamRange">
+            <summary>
+            条件の範囲。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.Difficulty">
+            <summary>
+            個々の譜面のコースを表すクラス。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Difficulty.Level">
+            <summary>
+            難易度。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.FileReader.Chip">
+            <summary>
+            チップのクラス。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.Time">
+            <summary>
+            時間。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.ChipType">
+            <summary>
+            チップのタイプ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.NoteType">
+            <summary>
+            音符のタイプ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.SENote">
+            <summary>
+            音符のSE。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.Judge">
+            <summary>
+            判定。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.Branching">
+            <summary>
+            譜面分岐中の譜面かどうか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.Scroll">
+            <summary>
+            スクロール速度。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.BPM">
+            <summary>
+            BPM。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.Direction">
+            <summary>
+            音符の流れてくる方向(弧度法)。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.IsNote">
+            <summary>
+            音符であるかどうか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.IsHitted">
+            <summary>
+            このチップが叩かれたか・判定枠を通ったか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.CanShow">
+            <summary>
+            このチップが見えるかどうか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.IsGoGoTime">
+            <summary>
+            このチップがゴーゴータイム中のものかどうか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.TimeLag">
+            <summary>
+            このチップが叩かれたとき、実際の時間とどのくらい差があったか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.RollCount">
+            <summary>
+            黄色連打数・ふうせん連打ノルマ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.MeasureCount">
+            <summary>
+            小節数。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.Measure">
+            <summary>
+            Measure。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.RollEnd">
+            <summary>
+            連打の終端。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.FileReader.Chips">
+            <summary>
+            チップの列挙型。
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Chips.Note">
+            <summary>
+            音符
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Chips.Measure">
+            <summary>
+            小節線
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Chips.MeasureChange">
+            <summary>
+            拍子変更
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Chips.BPMChange">
+            <summary>
+            BPM変更
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Chips.ScrollChange">
+            <summary>
+            スクロール速度変更
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Chips.GoGoStart">
+            <summary>
+            ゴーゴータイム開始
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Chips.GoGoEnd">
+            <summary>
+            ゴーゴータイム終了
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Chips.BarLineOff">
+            <summary>
+            小節線OFF
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Chips.BarLineOn">
+            <summary>
+            小節線ON
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Chips.BGMStart">
+            <summary>
+            BGMの開始
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Chips.MovieStart">
+            <summary>
+            背景動画の開始
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.FileReader.Notes">
+            <summary>
+            音符の列挙型。
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Notes.Space">
+            <summary>
+            空白
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Notes.Don">
+            <summary>
+            ドン
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Notes.Ka">
+            <summary>
+            カッ
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Notes.DON">
+            <summary>
+            ドン(大)
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Notes.KA">
+            <summary>
+            カッ(大)
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Notes.RollStart">
+            <summary>
+            連打開始
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Notes.ROLLStart">
+            <summary>
+            連打開始(大)
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Notes.Balloon">
+            <summary>
+            ふうせん連打
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Notes.RollEnd">
+            <summary>
+            連打終了
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.FileReader.SENotes">
+            <summary>
+            音符の擬音列挙型。
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.SENotes.Don">
+            <summary>
+            ドン
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.SENotes.Do">
+            <summary>
+            ド
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.SENotes.Ko">
+            <summary>
+            コ
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.SENotes.Katsu">
+            <summary>
+            カッ
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.SENotes.Ka">
+            <summary>
+            カ
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.SENotes.DON">
+            <summary>
+            ドン(大)
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.SENotes.KA">
+            <summary>
+            カッ(大)
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.SENotes.RollStart">
+            <summary>
+            連打
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.SENotes.ROLLStart">
+            <summary>
+            連打(大)
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.SENotes.Rolling">
+            <summary>
+            連打中
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.SENotes.RollEnd">
+            <summary>
+            連打終了
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.SENotes.Balloon">
+            <summary>
+            ふうせん
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.FileReader.Courses">
+            <summary>
+            コースの列挙型。
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Courses.Easy">
+            <summary>
+            かんたん
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Courses.Normal">
+            <summary>
+            ふつう
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Courses.Hard">
+            <summary>
+            むずかしい
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Courses.Oni">
+            <summary>
+            おに
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Courses.Edit">
+            <summary>
+            エディット
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.FileReader.Judge">
+            <summary>
+            判定
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Judge.Perfect">
+            <summary>
+            良
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Judge.GoodFast">
+            <summary>
+            早い可
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Judge.GoodLate">
+            <summary>
+            遅い可
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Judge.Bad">
+            <summary>
+            叩いて不可
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Judge.Miss">
+            <summary>
+            見過ごし不可
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.FileReader.Judge.None">
+            <summary>
+            なし
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.FileReader.CourseConverter.GetCoursesFromNumber(System.Int32)">
+            <summary>
+            整数からその整数が意味するコース名を返します。該当しない場合、おにが戻り値になります。
+            </summary>
+            <param name="number">整数。</param>
+            <returns>コース名。</returns>
+        </member>
+        <member name="M:Koioto.Support.FileReader.CourseConverter.GetCoursesFromString(System.String)">
+            <summary>
+            文字列からその文字列が意味するコース名を返します。該当しない場合、おにが戻り値になります。
+            </summary>
+            <param name="str">文字列。</param>
+            <returns>コース名。</returns>
+        </member>
+        <member name="M:Koioto.Support.FileReader.SENoteGenerator.GenerateSENotes(System.Collections.Generic.List{Koioto.Support.FileReader.Chip})">
+            <summary>
+            Chip型Listから前後の譜面を考慮してSENotesを返します。
+            </summary>
+            <param name="chips">Chip型List</param>
+            <returns></returns>
+        </member>
+        <member name="T:Koioto.Support.Infomationable">
+            <summary>
+            選曲画面で表示する情報
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Infomationable.FilePath">
+            <summary>
+            ファイル名。フルパス。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Infomationable.Courses">
+            <summary>
+            難易度別情報
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Infomationable.Title">
+            <summary>
+            タイトル
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Infomationable.SubTitle">
+            <summary>
+            サブタイトル
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Infomationable.BPM">
+            <summary>
+            BPM。nullの場合未指定
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Infomationable.Artist">
+            <summary>
+            アーティスト。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Infomationable.Creator">
+            <summary>
+            譜面の作成者。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Infomationable.PreviewSong">
+            <summary>
+            音源プレビューのためのファイル名。絶対パス。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Infomationable.SongPreviewTime">
+            <summary>
+            音源プレビューの開始位置。秒。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Infomationable.AlbumartPath">
+            <summary>
+            アルバムアートのファイル名。絶対パス。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.Log.ComboLog">
+            <summary>
+            コンボ数のログ。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Log.ComboLog.AddCombo">
+            <summary>
+            コンボ数をひとつ増加させる。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Log.ComboLog.ResetCombo">
+            <summary>
+            コンボ数をリセットする。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.ComboLog.MaxCombo">
+            <summary>
+            最大コンボ数。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.ComboLog.NowCombo">
+            <summary>
+            現在のコンボ数。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.Log.JudgeLog">
+            <summary>
+            判定のログ。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Log.JudgeLog.AddJudge(Koioto.Support.FileReader.Chip)">
+            <summary>
+            判定をログに追加する。
+            </summary>
+            <param name="chip">音符。</param>
+        </member>
+        <member name="M:Koioto.Support.Log.JudgeLog.AddJudge(Koioto.Support.FileReader.Judge)">
+            <summary>
+            判定をログに追加する。
+            </summary>
+            <param name="judge">判定。</param>
+        </member>
+        <member name="P:Koioto.Support.Log.JudgeLog.Perfect">
+            <summary>
+            Perfectの数。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.JudgeLog.Good">
+            <summary>
+            Goodの数。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.JudgeLog.GoodFast">
+            <summary>
+            早Goodの数。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.JudgeLog.GoodLate">
+            <summary>
+            遅Goodの数。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.JudgeLog.Bad">
+            <summary>
+            Badの数。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.Log.PlayLog">
+            <summary>
+            プレイログを記録する。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Log.PlayLog.#ctor(System.Int32)">
+            <summary>
+            プレイログの初期化。
+            </summary>
+            <param name="sectionCount">セクション数。</param>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.JudgeLogs">
+            <summary>
+            判定のログ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.ReplayLogs">
+            <summary>
+            リプレイのログ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.ScoreLogs">
+            <summary>
+            スコアのログ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.ComboLogs">
+            <summary>
+            セクション毎のコンボ数のログ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.Combo">
+            <summary>
+            全てのセクション合計のログ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.TotalMainScore">
+            <summary>
+            全てのセクション合計のメインスコア。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.TotalSubScore">
+            <summary>
+            全てのセクション合計のサブスコア。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.TotalMaxCombo">
+            <summary>
+            全てのセクション合計の最大コンボ数。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.TotalPerfect">
+            <summary>
+            全てのセクション合計のPerfectの数。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.TotalGood">
+            <summary>
+            全てのセクション合計のGoodの数。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.TotalGoodFast">
+            <summary>
+            全てのセクション合計の早Goodの数。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.TotalGoodLate">
+            <summary>
+            全てのセクション合計の遅Goodの数。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.TotalBad">
+            <summary>
+            全てのセクション合計のBadの数。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.Log.ReplayLog">
+            <summary>
+            リプレイログ。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Log.ReplayLog.#ctor">
+            <summary>
+            リプレイログを初期化する。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Log.ReplayLog.AddInput(Koioto.Support.Log.Input)">
+            <summary>
+            入力を追加する。
+            </summary>
+            <param name="input">Input。</param>
+        </member>
+        <member name="M:Koioto.Support.Log.ReplayLog.AddInput(System.Int64,KoiotoSupport.HitSide)">
+            <summary>
+            入力を追加する。
+            </summary>
+            <param name="inputTime">入力時間。</param>
+            <param name="hitSide">HitSide。</param>
+        </member>
+        <member name="P:Koioto.Support.Log.ReplayLog.InputList">
+            <summary>
+            入力を管理するクラス。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.Log.ScoreLog">
+            <summary>
+            スコアのログ。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Log.ScoreLog.AddMainScore(Koioto.Support.FileReader.Judge)">
+            <summary>
+            メインスコアに追加する。
+            </summary>
+            <param name="judge">判定</param>
+        </member>
+        <member name="M:Koioto.Support.Log.ScoreLog.AddSubScore">
+            <summary>
+            サブスコアに追加する。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.ScoreLog.Main">
+            <summary>
+            メインスコア。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.ScoreLog.Sub">
+            <summary>
+            サブスコア。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.Playable">
+            <summary>
+            実際に再生可能な譜面クラス。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.Bridge">
+            <summary>
+            Koioto PluginとKoiotoをつなぐクラス。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Bridge.KoiotoAssembly">
+            <summary>
+            KoiotoのAssembly。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Bridge.Settings">
+            <summary>
+            Koiotoの設定。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Bridge.SystemSound">
+            <summary>
+            Koiotoのシステムサウンド。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Bridge.EXEDir">
+            <summary>
+            実行ファイルのあるパス。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Bridge.ThemeDir">
+            <summary>
+            テーマのディレクトリ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Bridge.PluginDir">
+            <summary>
+            プラグインのディレクトリ。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.Settings">
+            <summary>
+            Koiotoの設定クラス。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.RootPath">
+            <summary>
+            譜面ファイルの入っているフォルダ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.WindowHeight">
+            <summary>
+            ウィンドウの高さ。DxLibの表示倍率はスキンの高さ÷ウィンドウの高さで決まる。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.FullScreen">
+            <summary>
+            フルスクリーンかどうか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.Theme">
+            <summary>
+            スキンのフォルダ名。Koiotoの入ってるフォルダ/Theme/フォルダ名 になる。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.VSync">
+            <summary>
+            垂直同期するかどうか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.SoundMode">
+            <summary>
+            サウンドモード。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.Player">
+            <summary>
+            プレイヤー数。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.JudgePerfect">
+            <summary>
+            良判定値。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.JudgeGood">
+            <summary>
+            可判定値。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.JudgeBad">
+            <summary>
+            不可判定値。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.Font">
+            <summary>
+            フォント。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.SoundMode">
+            <summary>
+            サウンドモード。
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.SoundMode.DirectSound">
+            <summary>
+            DirectSound。
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.SoundMode.Wasapi">
+            <summary>
+            WASAPI 共有モード。
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.SoundMode.WasapiExclusive">
+            <summary>
+            WASAPI 排他モード。
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.SoundMode.ASIO">
+            <summary>
+            ASIO。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.SystemSound">
+            <summary>
+            システムサウンド。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.SystemSound.Don">
+            <summary>
+            面の音。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.SystemSound.Ka">
+            <summary>
+            縁の音。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.SystemSound.Balloon">
+            <summary>
+            ふうせんが破裂した音。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.Util">
+            <summary>
+            ユーティリティクラス。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Util.GetDigitsFromLong(System.Int64)">
+            <summary>
+            自然数から各桁を求める(反転して)。
+            </summary>
+            <param name="num">自然数。</param>
+            <returns>各桁の配列(反転)。</returns>
+        </member>
+        <member name="T:KoiotoSupport.HitSide">
+            <summary>
+            叩いたもの。
+            </summary>
+        </member>
+        <member name="F:KoiotoSupport.HitSide.LeftKa">
+            <summary>
+            左縁
+            </summary>
+        </member>
+        <member name="F:KoiotoSupport.HitSide.LeftDon">
+            <summary>
+            左面
+            </summary>
+        </member>
+        <member name="F:KoiotoSupport.HitSide.RightDon">
+            <summary>
+            右面
+            </summary>
+        </member>
+        <member name="F:KoiotoSupport.HitSide.RightKa">
+            <summary>
+            右縁
+            </summary>
+        </member>
+    </members>
+</doc>
