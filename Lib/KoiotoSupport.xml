@@ -732,6 +732,19 @@
             プラグインのディレクトリ。
             </summary>
         </member>
+        <member name="T:Koioto.Support.Player`1">
+            <summary>
+            プレイヤー数が必要な
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Koioto.Support.Player`1.GetPlayer(System.Int32)">
+            <summary>
+            Tを返す。
+            </summary>
+            <param name="player">プレイヤー人数。</param>
+            <returns>T。</returns>
+        </member>
         <member name="T:Koioto.Support.Settings">
             <summary>
             Koiotoの設定クラス。
