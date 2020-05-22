@@ -318,6 +318,18 @@
             </summary>
             <param name="interval">Tickする間隔(マイクロ秒)。</param>
         </member>
+        <member name="M:Amaoto.Counter.ChangeEnd(System.Int64)">
+            <summary>
+            タイマーの終了値を変更します。
+            </summary>
+            <param name="end">終了値。</param>
+        </member>
+        <member name="M:Amaoto.Counter.ChangeBegin(System.Int64)">
+            <summary>
+            タイマーの開始値を変更します。
+            </summary>
+            <param name="begin">開始値。</param>
+        </member>
         <member name="E:Amaoto.Counter.Looped">
             <summary>
             ループした場合、イベントが発生します。
@@ -429,6 +441,101 @@
             現在のFPS。
             </summary>
         </member>
+        <member name="M:Amaoto.GUI.CheckBox.Draw">
+            <summary>
+            GUI部品を描画する。
+            </summary>
+        </member>
+        <member name="M:Amaoto.GUI.Button.Draw">
+            <summary>
+            GUI部品を描画する。
+            </summary>
+        </member>
+        <member name="T:Amaoto.GUI.DrawPart">
+            <summary>
+            GUI部品。
+            </summary>
+        </member>
+        <member name="M:Amaoto.GUI.DrawPart.#ctor(System.Int32,System.Int32)">
+            <summary>
+            GUI部品を初期化する。
+            </summary>
+            <param name="width">横幅。</param>
+            <param name="height">縦幅。</param>
+        </member>
+        <member name="M:Amaoto.GUI.DrawPart.Update(Amaoto.Mouse,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            GUI部品を更新する。
+            </summary>
+            <param name="mouse">マウス。</param>
+            <param name="pointX">マウスの相対X座標。</param>
+            <param name="pointY">マウスの相対Y座標。</param>
+        </member>
+        <member name="M:Amaoto.GUI.DrawPart.Draw">
+            <summary>
+            GUI部品を描画する。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.DrawPart.X">
+            <summary>
+            X座標。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.DrawPart.Y">
+            <summary>
+            Y座標。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.DrawPart.Width">
+            <summary>
+            横幅。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.DrawPart.Height">
+            <summary>
+            縦幅。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.DrawPart.Texture">
+            <summary>
+            描画するテクスチャ。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.DrawPart.Screen">
+            <summary>
+            仮想スクリーン
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.DrawPart.Child">
+            <summary>
+            子アイテム。
+            </summary>
+        </member>
+        <member name="E:Amaoto.GUI.DrawPart.Clicked">
+            <summary>
+            要素がクリックされた。
+            </summary>
+        </member>
+        <member name="E:Amaoto.GUI.DrawPart.LongClicked">
+            <summary>
+            要素がロングクリックされた。
+            </summary>
+        </member>
+        <member name="E:Amaoto.GUI.DrawPart.OnMouseDown">
+            <summary>
+            要素が押下された。
+            </summary>
+        </member>
+        <member name="E:Amaoto.GUI.DrawPart.OnMouseUp">
+            <summary>
+            要素の押下が終わった。
+            </summary>
+        </member>
+        <member name="F:Amaoto.GUI.DrawPart.MousePoint">
+            <summary>
+            相対座標。
+            </summary>
+        </member>
         <member name="T:Amaoto.Input">
             <summary>
             入力を管理するクラス。
@@ -457,6 +564,83 @@
             </summary>
             <param name="key">キーコード。</param>
             <returns>入力されているかどうか。</returns>
+        </member>
+        <member name="T:Amaoto.Mouse">
+            <summary>
+            マウス操作。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Mouse.#ctor">
+            <summary>
+            マウス操作。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Mouse.Update">
+            <summary>
+            マウスの入力を処理する。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Mouse.IsPushedButton(Amaoto.MouseButton)">
+            <summary>
+            マウスが押されたかどうかチェックする。
+            </summary>
+            <param name="mouseButton">ボタン。</param>
+            <returns>押されたかどうか。</returns>
+        </member>
+        <member name="M:Amaoto.Mouse.IsPushingButton(Amaoto.MouseButton)">
+            <summary>
+            マウスが押されているかどうかチェックする。
+            </summary>
+            <param name="mouseButton">ボタン。</param>
+            <returns>押されているかどうか。</returns>
+        </member>
+        <member name="M:Amaoto.Mouse.IsLeftButton(Amaoto.MouseButton)">
+            <summary>
+            マウスのボタンが離されたかどうかチェックする。
+            </summary>
+            <param name="mouseButton">ボタン。</param>
+            <returns>離されたかどうか。</returns>
+        </member>
+        <member name="P:Amaoto.Mouse.Wheel">
+            <summary>
+            マウスホイール回転量。
+            奥に回すと正の数になる。
+            </summary>
+        </member>
+        <member name="P:Amaoto.Mouse.Point">
+            <summary>
+            マウス座標。
+            </summary>
+        </member>
+        <member name="T:Amaoto.MouseButton">
+            <summary>
+            マウスのボタン。
+            </summary>
+        </member>
+        <member name="F:Amaoto.MouseButton.Left">
+            <summary>
+            左
+            </summary>
+        </member>
+        <member name="F:Amaoto.MouseButton.Right">
+            <summary>
+            右
+            </summary>
+        </member>
+        <member name="F:Amaoto.MouseButton.Middle">
+            <summary>
+            中央
+            </summary>
+        </member>
+        <member name="F:Amaoto.MouseButton.Button4">
+            <summary>
+            ボタン4。
+            </summary>
+        </member>
+        <member name="F:Amaoto.MouseButton.Button5">
+            <summary>
+            ボタン5。
+            </summary>
         </member>
         <member name="T:Amaoto.Movie">
             <summary>
@@ -833,6 +1017,11 @@
             <param name="x">X座標。</param>
             <param name="y">Y座標。</param>
             <param name="rectangle">描画範囲。</param>
+        </member>
+        <member name="M:Amaoto.VirtualScreen.ClearScreen">
+            <summary>
+            画面をクリアする。
+            </summary>
         </member>
         <member name="M:Amaoto.VirtualScreen.Dispose">
             <summary>

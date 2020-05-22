@@ -62,6 +62,7 @@
             The method calls when hit chips.
             </summary>
             <param name="chip">Chip</param>
+            <param name="player">Player</param>
         </member>
         <member name="M:Koioto.Plugin.Overlay.OnRoll(Koioto.Support.FileReader.Chip,System.Int32)">
             <summary>
