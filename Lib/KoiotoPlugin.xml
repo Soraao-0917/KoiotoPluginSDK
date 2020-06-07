@@ -50,12 +50,13 @@
             The method calls when drawing something.
             </summary>
         </member>
-        <member name="M:Koioto.Plugin.Overlay.OnSelectedSong(Koioto.Support.Playable[],Koioto.Support.ChartInfo)">
+        <member name="M:Koioto.Plugin.Overlay.OnSelectedSong(Koioto.Support.Playable[],Koioto.Support.ChartInfo,Koioto.Support.Log.PlayLog[])">
             <summary>
             The method calls when decided song.
             </summary>
             <param name="playable">Playable[]</param>
             <param name="chartInfo">Chart infomation</param>
+            <param name="playLogs">Instance of playing log.</param>
         </member>
         <member name="M:Koioto.Plugin.Overlay.OnHitNote(Koioto.Support.FileReader.Chip,System.Int32)">
             <summary>
@@ -64,12 +65,13 @@
             <param name="chip">Chip</param>
             <param name="player">Player</param>
         </member>
-        <member name="M:Koioto.Plugin.Overlay.OnRoll(Koioto.Support.FileReader.Chip,System.Int32)">
+        <member name="M:Koioto.Plugin.Overlay.OnRoll(Koioto.Support.FileReader.Chip,System.Int32,System.Boolean)">
             <summary>
             The method calls when rolling.
             </summary>
             <param name="chip">Chip</param>
             <param name="player">Player</param>
+            <param name="isDon">Whether it is a don.</param>
         </member>
         <member name="M:Koioto.Plugin.Overlay.OnBrokeBalloon(Koioto.Support.FileReader.Chip,System.Int32)">
             <summary>

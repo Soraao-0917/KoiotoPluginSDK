@@ -692,6 +692,64 @@
             サブスコア。
             </summary>
         </member>
+        <member name="T:Koioto.Support.Notification">
+            <summary>
+            通知
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Notification.#ctor(System.String,System.String)">
+            <summary>
+            通知の初期化。
+            </summary>
+            <param name="title">タイトル。</param>
+            <param name="description">通知の説明。</param>
+        </member>
+        <member name="P:Koioto.Support.Notification.Title">
+            <summary>
+            タイトル。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Notification.Description">
+            <summary>
+            通知の説明。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Notification.TitleTexture">
+            <summary>
+            タイトルのテクスチャ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Notification.DescriptionTexutre">
+            <summary>
+            説明のテクスチャ。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.NotificationManager">
+            <summary>
+            通知管理。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.NotificationManager.#ctor">
+            <summary>
+            通知管理の初期化。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.NotificationManager.AddNotification(Koioto.Support.Notification)">
+            <summary>
+            通知を追加する。
+            </summary>
+            <param name="notification">通知。</param>
+        </member>
+        <member name="P:Koioto.Support.NotificationManager.Notifications">
+            <summary>
+            通知たち。
+            </summary>
+        </member>
+        <member name="E:Koioto.Support.NotificationManager.OnAdded">
+            <summary>
+            通知が増えた。
+            </summary>
+        </member>
         <member name="T:Koioto.Support.Playable">
             <summary>
             実際に再生可能な譜面クラス。
@@ -715,6 +773,11 @@
         <member name="P:Koioto.Support.Bridge.SystemSound">
             <summary>
             Koiotoのシステムサウンド。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Bridge.NotificationManager">
+            <summary>
+            通知管理。
             </summary>
         </member>
         <member name="P:Koioto.Support.Bridge.EXEDir">
