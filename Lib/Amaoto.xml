@@ -4,6 +4,16 @@
         <name>Amaoto</name>
     </assembly>
     <members>
+        <member name="T:Amaoto.Amaoto">
+            <summary>
+            Amaoto クラス。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Amaoto.Init">
+            <summary>
+            Amaoto の初期化をする。必ず Amaoto の使用前に呼び出す必要がある。
+            </summary>
+        </member>
         <member name="T:Amaoto.Animation.Animator">
             <summary>
             アニメーター抽象クラス、
@@ -81,6 +91,25 @@
             <param name="param">維持させたい値</param>
             <param name="timeNs">維持させる時間。</param>
         </member>
+        <member name="T:Amaoto.Animation.EaseInBack">
+            <summary>
+            イーズインバックを行うクラス。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Animation.EaseInBack.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            イーズインバックを初期化します。
+            </summary>
+            <param name="startPoint">始点。</param>
+            <param name="endPoint">終点。</param>
+            <param name="timeNs">イージングにかける時間。</param>
+        </member>
+        <member name="M:Amaoto.Animation.EaseInBack.GetAnimation">
+            <summary>
+            座標を返します。
+            </summary>
+            <returns>double型の座標。</returns>
+        </member>
         <member name="T:Amaoto.Animation.EaseIn">
             <summary>
             イーズインを行うクラス。
@@ -114,6 +143,25 @@
             <param name="timeNs">イージングにかける時間。</param>
         </member>
         <member name="M:Amaoto.Animation.EaseInOut.GetAnimation">
+            <summary>
+            座標を返します。
+            </summary>
+            <returns>double型の座標。</returns>
+        </member>
+        <member name="T:Amaoto.Animation.EaseOutBack">
+            <summary>
+            イーズアウトバックを行うクラス。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Animation.EaseOutBack.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            イーズアウトバックを初期化します。
+            </summary>
+            <param name="startPoint">始点。</param>
+            <param name="endPoint">終点。</param>
+            <param name="timeNs">イージングにかける時間。</param>
+        </member>
+        <member name="M:Amaoto.Animation.EaseOutBack.GetAnimation">
             <summary>
             座標を返します。
             </summary>
@@ -257,6 +305,11 @@
             現在どのアニメーターを再生してるかのインデックス。
             </summary>
         </member>
+        <member name="E:Amaoto.Animation.Sequencer.SequenceEnded">
+            <summary>
+            アニメーションシーケンサーがすべてのアニメーションっを再生し終了した。
+            </summary>
+        </member>
         <member name="T:Amaoto.ConfigManager">
             <summary>
             設定ファイル入出力クラス。
@@ -333,6 +386,11 @@
         <member name="E:Amaoto.Counter.Looped">
             <summary>
             ループした場合、イベントが発生します。
+            </summary>
+        </member>
+        <member name="E:Amaoto.Counter.Ended">
+            <summary>
+            タイマーが止まった。
             </summary>
         </member>
         <member name="P:Amaoto.Counter.NowTime">
@@ -476,6 +534,11 @@
             GUI部品を描画する。
             </summary>
         </member>
+        <member name="M:Amaoto.GUI.DrawPart.StartDragging">
+            <summary>
+            ドラッグされたことを通知して、クリックイベントを発生させないようにする。
+            </summary>
+        </member>
         <member name="P:Amaoto.GUI.DrawPart.X">
             <summary>
             X座標。
@@ -531,9 +594,34 @@
             要素の押下が終わった。
             </summary>
         </member>
-        <member name="F:Amaoto.GUI.DrawPart.MousePoint">
+        <member name="E:Amaoto.GUI.DrawPart.OnHovering">
+            <summary>
+            マウスで要素をホバリングしている。
+            </summary>
+        </member>
+        <member name="E:Amaoto.GUI.DrawPart.OnMouseEnter">
+            <summary>
+            マウスが要素内に入ってきた。
+            </summary>
+        </member>
+        <member name="E:Amaoto.GUI.DrawPart.OnMouseLeave">
+            <summary>
+            マウスが要素内から出て行った。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.DrawPart.MousePoint">
             <summary>
             相対座標。
+            </summary>
+        </member>
+        <member name="F:Amaoto.GUI.DrawPart.LongClickCounter">
+            <summary>
+            ロングクリックを検知するためのカウンター。
+            </summary>
+        </member>
+        <member name="T:Amaoto.GUI.Image">
+            <summary>
+            ただ画像表示を行うだけの GUI 部品。
             </summary>
         </member>
         <member name="T:Amaoto.Input">
@@ -940,11 +1028,6 @@
         <member name="F:Amaoto.BlendMode.Subtract">
             <summary>
             減算合成
-            </summary>
-        </member>
-        <member name="F:Amaoto.BlendMode.Multiply">
-            <summary>
-            乗算合成。
             </summary>
         </member>
         <member name="T:Amaoto.ReferencePoint">
