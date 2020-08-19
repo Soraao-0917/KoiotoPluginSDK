@@ -101,6 +101,26 @@
             <param name="subScore">Sub score</param>
             <param name="player">Player</param>
         </member>
+        <member name="M:Koioto.Plugin.Overlay.OnChangedSection(System.Int32,System.Int32,System.Collections.Generic.List{Koioto.Support.FileReader.Chip})">
+            <summary>
+            The method calls when changed section.
+            </summary>
+            <param name="sectionIndex">Section's index</param>
+            <param name="player">Player</param>
+            <param name="section">Section</param>
+        </member>
+        <member name="M:Koioto.Plugin.Overlay.OnPlayer(System.Int64)">
+            <summary>
+            The method calls when playing.
+            </summary>
+            <param name="sectionTickValue">Now section's value of counter</param>
+        </member>
+        <member name="M:Koioto.Plugin.Overlay.OnChangedResolution(System.Drawing.Size)">
+            <summary>
+            The method calls when changed screen resolution.
+            </summary>
+            <param name="size">Screen resolution</param>
+        </member>
         <member name="T:Koioto.Plugin.IFileReadable">
             <summary>
             A Class is base of Koioto file reader plugin.

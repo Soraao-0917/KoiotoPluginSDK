@@ -440,6 +440,31 @@
             <param name="chips">Chip型List</param>
             <returns></returns>
         </member>
+        <member name="T:Koioto.Support.HitSide">
+            <summary>
+            叩いたもの。
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.HitSide.LeftKa">
+            <summary>
+            左縁
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.HitSide.LeftDon">
+            <summary>
+            左面
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.HitSide.RightDon">
+            <summary>
+            右面
+            </summary>
+        </member>
+        <member name="F:Koioto.Support.HitSide.RightKa">
+            <summary>
+            右縁
+            </summary>
+        </member>
         <member name="T:Koioto.Support.Infomationable">
             <summary>
             選曲画面で表示する情報
@@ -654,7 +679,7 @@
             </summary>
             <param name="input">Input。</param>
         </member>
-        <member name="M:Koioto.Support.Log.ReplayLog.AddInput(System.Int64,KoiotoSupport.HitSide)">
+        <member name="M:Koioto.Support.Log.ReplayLog.AddInput(System.Int64,Koioto.Support.HitSide)">
             <summary>
             入力を追加する。
             </summary>
@@ -780,6 +805,11 @@
             通知管理。
             </summary>
         </member>
+        <member name="P:Koioto.Support.Bridge.SoundManager">
+            <summary>
+            サウンド管理。
+            </summary>
+        </member>
         <member name="P:Koioto.Support.Bridge.EXEDir">
             <summary>
             実行ファイルのあるパス。
@@ -868,6 +898,65 @@
             フォント。
             </summary>
         </member>
+        <member name="T:Koioto.Support.SoundManager">
+            <summary>
+            サウンドマネージャー。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.SoundManager.AddManagedSound(Koioto.Support.ManagedSound)">
+            <summary>1
+            マネージドサウンドを追加する。
+            </summary>
+            <param name="managedSound"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Koioto.Support.SoundManager.RemoveManagedSound(Amaoto.IPlayable)">
+            <summary>
+            マネージドサウンドを削除する。
+            </summary>
+            <param name="sound"></param>
+        </member>
+        <member name="M:Koioto.Support.SoundManager.ChangeVolume(System.Double,Koioto.Support.SoundType)">
+            <summary>
+            音量を変更します。
+            </summary>
+            <param name="volume"></param>
+            <param name="soundType"></param>
+        </member>
+        <member name="M:Koioto.Support.SoundManager.GetVolume(Koioto.Support.SoundType)">
+            <summary>
+            ボリュームを取得します。
+            </summary>
+            <param name="soundType"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Koioto.Support.ManagedSound">
+            <summary>
+            サウンドマネージャーで管理されるサウンド。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.ManagedSound.#ctor(Amaoto.IPlayable,Koioto.Support.SoundType)">
+            <summary>
+            マネージドサウンドインスタンスを生成する。
+            </summary>
+            <param name="sound">サウンド。</param>
+            <param name="soundType">サウンドの種類。</param>
+        </member>
+        <member name="P:Koioto.Support.ManagedSound.Sound">
+            <summary>
+            サウンド。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.ManagedSound.Type">
+            <summary>
+            種類。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.SoundType">
+            <summary>
+            サウンドの種類。
+            </summary>
+        </member>
         <member name="T:Koioto.Support.SoundMode">
             <summary>
             サウンドモード。
@@ -925,30 +1014,21 @@
             <param name="num">自然数。</param>
             <returns>各桁の配列(反転)。</returns>
         </member>
-        <member name="T:KoiotoSupport.HitSide">
+        <member name="M:Koioto.Support.Util.GetProperScaleX(Amaoto.Texture,System.Int32)">
             <summary>
-            叩いたもの。
+            テクスチャのX軸の適切なスケール率を横幅から求める。
             </summary>
+            <param name="texture">テクスチャ。</param>
+            <param name="width">横幅。</param>
+            <returns>スケール率。1以下。</returns>
         </member>
-        <member name="F:KoiotoSupport.HitSide.LeftKa">
+        <member name="M:Koioto.Support.Util.GetProperScaleY(Amaoto.Texture,System.Int32)">
             <summary>
-            左縁
+            テクスチャのY軸の適切なスケール率を縦幅から求める。
             </summary>
-        </member>
-        <member name="F:KoiotoSupport.HitSide.LeftDon">
-            <summary>
-            左面
-            </summary>
-        </member>
-        <member name="F:KoiotoSupport.HitSide.RightDon">
-            <summary>
-            右面
-            </summary>
-        </member>
-        <member name="F:KoiotoSupport.HitSide.RightKa">
-            <summary>
-            右縁
-            </summary>
+            <param name="texture">テクスチャ。</param>
+            <param name="height">縦幅。</param>
+            <returns>スケール率。1以下。</returns>
         </member>
     </members>
 </doc>

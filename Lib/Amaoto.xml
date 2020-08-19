@@ -741,7 +741,7 @@
             </summary>
             <param name="fileName">ファイル名。</param>
         </member>
-        <member name="M:Amaoto.Movie.Play">
+        <member name="M:Amaoto.Movie.Play(System.Boolean)">
             <summary>
             再生を開始します。
             </summary>
@@ -751,9 +751,14 @@
             再生を停止します。
             </summary>
         </member>
+        <member name="P:Amaoto.Movie.Volume">
+            <summary>
+            動画の音量。
+            </summary>
+        </member>
         <member name="P:Amaoto.Movie.Time">
             <summary>
-            時間。
+            時間。単位はミリ秒。
             </summary>
         </member>
         <member name="P:Amaoto.Movie.IsPlaying">
