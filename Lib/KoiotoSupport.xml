@@ -433,13 +433,6 @@
             <param name="str">文字列。</param>
             <returns>コース名。</returns>
         </member>
-        <member name="M:Koioto.Support.FileReader.SENoteGenerator.GenerateSENotes(System.Collections.Generic.List{Koioto.Support.FileReader.Chip})">
-            <summary>
-            Chip型Listから前後の譜面を考慮してSENotesを返します。
-            </summary>
-            <param name="chips">Chip型List</param>
-            <returns></returns>
-        </member>
         <member name="T:Koioto.Support.HitSide">
             <summary>
             叩いたもの。
@@ -587,6 +580,11 @@
             Badの数。
             </summary>
         </member>
+        <member name="P:Koioto.Support.Log.JudgeLog.Miss">
+            <summary>
+            Missの数。
+            </summary>
+        </member>
         <member name="T:Koioto.Support.Log.PlayLog">
             <summary>
             プレイログを記録する。
@@ -661,6 +659,11 @@
         <member name="P:Koioto.Support.Log.PlayLog.TotalBad">
             <summary>
             全てのセクション合計のBadの数。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Log.PlayLog.TotalMiss">
+            <summary>
+            全てのセクション合計のMissの数。
             </summary>
         </member>
         <member name="T:Koioto.Support.Log.ReplayLog">
