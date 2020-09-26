@@ -1005,6 +1005,74 @@
             ふうせんが破裂した音。
             </summary>
         </member>
+        <member name="T:Koioto.Support.Tracer">
+            <summary>
+            トレーサー。
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.Tracer.LogLevel">
+            <summary>
+            ログレベル
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Tracer.GetTracer(System.String)">
+            <summary>
+            初期化。
+            </summary>
+            <param name="filePath">ファイルパス</param>
+        </member>
+        <member name="M:Koioto.Support.Tracer.Error(System.String)">
+            <summary>
+            エラーを出力する
+            </summary>
+            <param name="msg">メッセージ</param>
+        </member>
+        <member name="M:Koioto.Support.Tracer.Error(System.Exception)">
+            <summary>
+            エラーを出力する
+            </summary>
+            <param name="ex">例外オブジェクト</param>
+        </member>
+        <member name="M:Koioto.Support.Tracer.Warn(System.String)">
+            <summary>
+            警告を出力する
+            </summary>
+            <param name="msg">メッセージ</param>
+        </member>
+        <member name="M:Koioto.Support.Tracer.Info(System.String)">
+            <summary>
+            情報を出力する
+            </summary>
+            <param name="msg">メッセージ</param>
+        </member>
+        <member name="M:Koioto.Support.Tracer.Flush">
+            <summary>
+            ストリームに書き込む
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Tracer.Indent">
+            <summary>
+            インデントする。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Tracer.UnIndent">
+            <summary>
+            アンインデントする。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Tracer.Out(Koioto.Support.Tracer.LogLevel,System.String)">
+            <summary>
+            ログを出力する
+            </summary>
+            <param name="level">ログレベル</param>
+            <param name="msg">メッセージ</param>
+        </member>
+        <member name="M:Koioto.Support.Tracer.CreateLogfile(System.IO.FileInfo)">
+            <summary>
+            ログファイルを生成する
+            </summary>
+            <param name="logFile">ファイル情報</param>
+        </member>
         <member name="T:Koioto.Support.Util">
             <summary>
             ユーティリティクラス。
@@ -1017,21 +1085,23 @@
             <param name="num">自然数。</param>
             <returns>各桁の配列(反転)。</returns>
         </member>
-        <member name="M:Koioto.Support.Util.GetProperScaleX(Amaoto.Texture,System.Int32)">
+        <member name="M:Koioto.Support.Util.GetProperScaleX(Amaoto.Texture,System.Int32,System.Boolean)">
             <summary>
             テクスチャのX軸の適切なスケール率を横幅から求める。
             </summary>
             <param name="texture">テクスチャ。</param>
             <param name="width">横幅。</param>
-            <returns>スケール率。1以下。</returns>
+            <param name="expandOrig">元のサイズより拡大するかどうか。</param>
+            <returns>スケール率。</returns>
         </member>
-        <member name="M:Koioto.Support.Util.GetProperScaleY(Amaoto.Texture,System.Int32)">
+        <member name="M:Koioto.Support.Util.GetProperScaleY(Amaoto.Texture,System.Int32,System.Boolean)">
             <summary>
             テクスチャのY軸の適切なスケール率を縦幅から求める。
             </summary>
             <param name="texture">テクスチャ。</param>
             <param name="height">縦幅。</param>
-            <returns>スケール率。1以下。</returns>
+            <param name="expandOrig">元のサイズより拡大するかどうか。</param>
+            <returns>スケール率。</returns>
         </member>
     </members>
 </doc>

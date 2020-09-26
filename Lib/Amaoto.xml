@@ -14,6 +14,17 @@
             Amaoto の初期化をする。必ず Amaoto の使用前に呼び出す必要がある。
             </summary>
         </member>
+        <member name="M:Amaoto.Amaoto.SetLongClickNs(System.Int32)">
+            <summary>
+            GUI で使われる長押し時間を変更する。
+            </summary>
+            <param name="ms">ミリ秒。</param>
+        </member>
+        <member name="P:Amaoto.Amaoto.LongClickMs">
+            <summary>
+            長押し時間。
+            </summary>
+        </member>
         <member name="T:Amaoto.Animation.Animator">
             <summary>
             アニメーター抽象クラス、
@@ -457,11 +468,12 @@
             <param name="edge">縁取りの大きさ。</param>
             <param name="fontStyle">フォントスタイル。</param>
         </member>
-        <member name="M:Amaoto.FontRender.GetTexture(System.String)">
+        <member name="M:Amaoto.FontRender.GetTexture(System.String,System.Nullable{System.Drawing.Rectangle})">
             <summary>
             文字テクスチャを生成します。
             </summary>
             <param name="text">文字列。</param>
+            <param name="rectangle">文字の範囲。</param>
             <returns>テクスチャ。</returns>
         </member>
         <member name="P:Amaoto.FontRender.ForeColor">
