@@ -100,7 +100,7 @@
             正真正銘、何もしない。
             </summary>
             <param name="param">維持させたい値</param>
-            <param name="timeNs">維持させる時間。</param>
+            <param name="timeUs">維持させる時間。</param>
         </member>
         <member name="T:Amaoto.Animation.EaseInBack">
             <summary>
@@ -113,7 +113,7 @@
             </summary>
             <param name="startPoint">始点。</param>
             <param name="endPoint">終点。</param>
-            <param name="timeNs">イージングにかける時間。</param>
+            <param name="timeUs">イージングにかける時間。</param>
         </member>
         <member name="M:Amaoto.Animation.EaseInBack.GetAnimation">
             <summary>
@@ -132,7 +132,7 @@
             </summary>
             <param name="startPoint">始点。</param>
             <param name="endPoint">終点。</param>
-            <param name="timeNs">イージングにかける時間。</param>
+            <param name="timeUs">イージングにかける時間。</param>
         </member>
         <member name="M:Amaoto.Animation.EaseIn.GetAnimation">
             <summary>
@@ -151,7 +151,7 @@
             </summary>
             <param name="startPoint">始点。</param>
             <param name="endPoint">終点。</param>
-            <param name="timeNs">イージングにかける時間。</param>
+            <param name="timeUs">イージングにかける時間。</param>
         </member>
         <member name="M:Amaoto.Animation.EaseInOut.GetAnimation">
             <summary>
@@ -170,7 +170,7 @@
             </summary>
             <param name="startPoint">始点。</param>
             <param name="endPoint">終点。</param>
-            <param name="timeNs">イージングにかける時間。</param>
+            <param name="timeUs">イージングにかける時間。</param>
         </member>
         <member name="M:Amaoto.Animation.EaseOutBack.GetAnimation">
             <summary>
@@ -189,7 +189,7 @@
             </summary>
             <param name="startPoint">始点。</param>
             <param name="endPoint">終点。</param>
-            <param name="timeNs">イージングにかける時間。</param>
+            <param name="timeUs">イージングにかける時間。</param>
         </member>
         <member name="M:Amaoto.Animation.EaseOut.GetAnimation">
             <summary>
@@ -206,7 +206,7 @@
             <summary>
             フェードインを初期化します。
             </summary>
-            <param name="timeNs">フェードインに掛ける秒数(ミリ秒)</param>
+            <param name="timeUs">フェードインに掛ける秒数(マイクロ秒)</param>
         </member>
         <member name="M:Amaoto.Animation.FadeIn.GetAnimation">
             <summary>
@@ -223,7 +223,7 @@
             <summary>
             フェードアウトを初期化します。
             </summary>
-            <param name="timeNs">フェードアウトに掛ける秒数(ミリ秒)</param>
+            <param name="timeUs">フェードアウトに掛ける秒数(マイクロ秒)</param>
         </member>
         <member name="M:Amaoto.Animation.FadeOut.GetAnimation">
             <summary>
@@ -242,7 +242,7 @@
             </summary>
             <param name="startPoint">始点。</param>
             <param name="endPoint">終点。</param>
-            <param name="timeNs">移動にかける時間。</param>
+            <param name="timeUs">移動にかける時間。</param>
         </member>
         <member name="T:Amaoto.Animation.Sequencer">
             <summary>

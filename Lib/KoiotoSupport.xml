@@ -161,7 +161,12 @@
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.RollCount">
             <summary>
-            黄色連打数・ふうせん連打ノルマ。
+            黄色・ふうせん連打数。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.FileReader.Chip.RollObjective">
+            <summary>
+            ふうせん連打の目標。
             </summary>
         </member>
         <member name="P:Koioto.Support.FileReader.Chip.MeasureCount">
