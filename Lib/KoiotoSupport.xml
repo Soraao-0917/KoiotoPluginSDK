@@ -871,6 +871,11 @@
             スキンのフォルダ名。Koiotoの入ってるフォルダ/Theme/フォルダ名 になる。
             </summary>
         </member>
+        <member name="P:Koioto.Support.Settings.DefaultDifficulty">
+            <summary>
+            デフォルトの難易度。
+            </summary>
+        </member>
         <member name="P:Koioto.Support.Settings.VSync">
             <summary>
             垂直同期するかどうか。
@@ -904,6 +909,11 @@
         <member name="P:Koioto.Support.Settings.Font">
             <summary>
             フォント。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.ScreenshotPreview">
+            <summary>
+            スクリーンショットのプレビューを表示する。
             </summary>
         </member>
         <member name="T:Koioto.Support.SoundManager">
@@ -1010,6 +1020,20 @@
             ふうせんが破裂した音。
             </summary>
         </member>
+        <member name="T:Koioto.Support.Theme.NumberTexture">
+            <summary>
+            数字のテクスチャを表す。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Theme.NumberTexture.GetDrawPoint(System.Int64,System.Int32,System.Single,System.Single,Koioto.Support.Theme.Align)">
+            <summary>
+            桁数と初期座標から、現在描画すべき座標を返す。
+            </summary>
+            <param name="digit">現在の桁数。</param>
+            <param name="x">X座標の初期値。</param>
+            <param name="y">Y座標の初期値。</param>
+            <returns>X, Y座標</returns>
+        </member>
         <member name="T:Koioto.Support.Tracer">
             <summary>
             トレーサー。
@@ -1083,6 +1107,51 @@
             ユーティリティクラス。
             </summary>
         </member>
+        <member name="M:Koioto.Support.Util.GetRectangleFromDigit(System.Int32,Koioto.Support.Theme.NumberTexture)">
+            <summary>
+            0～9の数字から、描画すべき範囲を求める。
+            </summary>
+            <param name="num">0～9。</param>
+            <param name="tex">テクスチャ。</param>
+            <returns>描画すべき範囲。</returns>
+        </member>
+        <member name="M:Koioto.Support.Util.SetThemeToTexture(Amaoto.Texture,Koioto.Support.Theme.NormalTexture)">
+            <summary>
+            テクスチャに NormalTexture 座標以外の設定値を割り当てる。
+            </summary>
+            <param name="tex">テクスチャ。</param>
+            <param name="theme">NormalTexture。</param>
+        </member>
+        <member name="M:Koioto.Support.Util.SetThemeToTexture(Amaoto.Texture,Koioto.Support.Theme.SingleTexture)">
+            <summary>
+            テクスチャに SingleTexture 座標以外の設定値を割り当てる。
+            </summary>
+            <param name="tex">テクスチャ。</param>
+            <param name="theme">SingleTexture。</param>
+        </member>
+        <member name="M:Koioto.Support.Util.GetFontRenderFromTheme(Koioto.Support.Theme.Font)">
+            <summary>
+            システムフォントのFontRenderを生成する。
+            </summary>
+            <param name="theme">テーマの定義。</param>
+            <returns>FontRender。</returns>
+        </member>
+        <member name="M:Koioto.Support.Util.SetFontRenderColorFromTheme(Amaoto.FontRender,Koioto.Support.Theme.Color,Koioto.Support.Theme.Color)">
+            <summary>
+            FontRenderにテーマの色を設定する。
+            </summary>
+            <param name="fontRender">FontRender</param>
+            <param name="foreColor">文字色。</param>
+            <param name="backColor">縁色。</param>
+        </member>
+        <member name="M:Koioto.Support.Util.GetFontRenderFromTheme(System.String,Koioto.Support.Theme.Font)">
+            <summary>
+            フォント名からFontRenderを生成する。
+            </summary>
+            <param name="fontName">フォント名。</param>
+            <param name="theme">テーマの定義。</param>
+            <returns>FontRender。</returns>
+        </member>
         <member name="M:Koioto.Support.Util.GetDigitsFromLong(System.Int64)">
             <summary>
             自然数から各桁を求める(反転して)。
@@ -1107,6 +1176,16 @@
             <param name="height">縦幅。</param>
             <param name="expandOrig">元のサイズより拡大するかどうか。</param>
             <returns>スケール率。</returns>
+        </member>
+        <member name="M:Koioto.Support.Util.GetAnimator(Koioto.Support.Theme.AnimationType,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            アニメーターを取得する。
+            </summary>
+            <param name="type">AnimationType。</param>
+            <param name="startPoint">始点。</param>
+            <param name="endPoint">終点。</param>
+            <param name="timeUs">マイクロ秒。</param>
+            <returns>アニメーター。</returns>
         </member>
     </members>
 </doc>
