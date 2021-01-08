@@ -20,10 +20,66 @@
             </summary>
             <param name="ms">ミリ秒。</param>
         </member>
+        <member name="M:Amaoto.Amaoto.SetFontRenderDebug(System.Boolean)">
+            <summary>
+            FontRenderのデバッグを行うかどうか設定する。
+            </summary>
+            <param name="debug">デバッグを行う。</param>
+        </member>
         <member name="P:Amaoto.Amaoto.LongClickMs">
             <summary>
             長押し時間。
             </summary>
+        </member>
+        <member name="P:Amaoto.Amaoto.FontRenderDebug">
+            <summary>
+            FontRenderのデバッグを行うかどうか。
+            </summary>
+        </member>
+        <member name="T:Amaoto.AnimateTexture">
+            <summary>
+            連番画像を読み込み、動画のように見せる。
+            </summary>
+        </member>
+        <member name="M:Amaoto.AnimateTexture.#ctor(Amaoto.Texture[],System.Double,System.Boolean)">
+            <summary>
+            連番画像を読み込み、動画のように見せる。
+            </summary>
+            <param name="textures">連番画像。</param>
+            <param name="fps">FPS。</param>
+            <param name="loop">ループするかどうか。</param>
+        </member>
+        <member name="P:Amaoto.AnimateTexture.IsPlaying">
+            <summary>
+            現在再生中かどうか。
+            </summary>
+        </member>
+        <member name="P:Amaoto.AnimateTexture.Time">
+            <summary>
+            何コマ目かを設定または取得します。
+            </summary>
+        </member>
+        <member name="P:Amaoto.AnimateTexture.Volume">
+            <summary>
+            音声はないため、必ず0がリターンされます。
+            </summary>
+        </member>
+        <member name="M:Amaoto.AnimateTexture.Play(System.Boolean)">
+            <summary>
+            再生を開始します。
+            </summary>
+            <param name="playFromBegin">最初から再生するか？</param>
+        </member>
+        <member name="M:Amaoto.AnimateTexture.Stop">
+            <summary>
+            再生を停止します。
+            </summary>
+        </member>
+        <member name="M:Amaoto.AnimateTexture.GetTexture">
+            <summary>
+            現在のコマのテクスチャをリターンします。
+            </summary>
+            <returns>現在のコマのテクスチャ。</returns>
         </member>
         <member name="T:Amaoto.Animation.Animator">
             <summary>
@@ -454,6 +510,34 @@
             動作している。
             </summary>
         </member>
+        <member name="T:Amaoto.DXLibUtil">
+            <summary>
+            DXライブラリに関するユーティリティクラス。
+            </summary>
+        </member>
+        <member name="M:Amaoto.DXLibUtil.DrawWithOpacity(System.Int32,Amaoto.BlendMode,System.Action)">
+            <summary>
+            透明度とブレンドモードを指定してDXライブラリの描画命令を実行する。
+            </summary>
+            <param name="opacity">0～255の不透明度。</param>
+            <param name="blendMode">ブレンドモード。</param>
+            <param name="content">Textureクラスを用いないDXライブラリの描画命令。</param>
+        </member>
+        <member name="M:Amaoto.DXLibUtil.DrawWithOpacity(System.Double,Amaoto.BlendMode,System.Action)">
+            <summary>
+            透明度とブレンドモードを指定してDXライブラリの描画命令を実行する。
+            </summary>
+            <param name="opacity">0～1.0の不透明度。</param>
+            <param name="blendMode">ブレンドモード。</param>
+            <param name="content">Textureクラスを用いないDXライブラリの描画命令。</param>
+        </member>
+        <member name="M:Amaoto.DXLibUtil.GetBlendModeConstant(Amaoto.BlendMode)">
+            <summary>
+            BlendMode列挙型からDXライブラリのブレンドモードの定数を取得する。
+            </summary>
+            <param name="blendMode">BlendMode列挙型。</param>
+            <returns>ブレンドモードの定数。</returns>
+        </member>
         <member name="T:Amaoto.FontRender">
             <summary>
             文字テクスチャを生成するクラス。
@@ -515,6 +599,20 @@
             <summary>
             GUI部品を描画する。
             </summary>
+        </member>
+        <member name="T:Amaoto.GUI.Button">
+            <summary>
+            ボタン。
+            </summary>
+        </member>
+        <member name="M:Amaoto.GUI.Button.#ctor(Amaoto.ITextureReturnable,Amaoto.ITextureReturnable,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            GUIのボタンを描画する。
+            </summary>
+            <param name="background">ボタンの背景として使用する画像。正方形でなければならない。</param>
+            <param name="content">ボタンの中身。</param>
+            <param name="width">(オプション)横のサイズ。</param>
+            <param name="height">(オプション)縦のサイズ。</param>
         </member>
         <member name="M:Amaoto.GUI.Button.Draw">
             <summary>
@@ -636,6 +734,28 @@
             ただ画像表示を行うだけの GUI 部品。
             </summary>
         </member>
+        <member name="T:Amaoto.GUI.MouseClickEventArgs">
+            <summary>
+            マウスでクリックしたときのイベント。
+            </summary>
+        </member>
+        <member name="M:Amaoto.GUI.MouseClickEventArgs.#ctor(System.Int32,System.Int32)">
+            <summary>
+            マウスでクリックしたときのイベント。
+            </summary>
+            <param name="posX">X座標。</param>
+            <param name="posY">Y座標。</param>
+        </member>
+        <member name="P:Amaoto.GUI.MouseClickEventArgs.PosX">
+            <summary>
+            X座標。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.MouseClickEventArgs.PosY">
+            <summary>
+            Y座標。
+            </summary>
+        </member>
         <member name="T:Amaoto.Input">
             <summary>
             入力を管理するクラス。
@@ -664,6 +784,17 @@
             </summary>
             <param name="key">キーコード。</param>
             <returns>入力されているかどうか。</returns>
+        </member>
+        <member name="T:Amaoto.ITextureReturnable">
+            <summary>
+            何かのテクスチャを取得できる仕組みを提供します。
+            </summary>
+        </member>
+        <member name="M:Amaoto.ITextureReturnable.GetTexture">
+            <summary>
+            テクスチャを取得する。
+            </summary>
+            <returns>テクスチャ。</returns>
         </member>
         <member name="T:Amaoto.Mouse">
             <summary>
@@ -977,6 +1108,12 @@
             </summary>
             <param name="path">保存先。</param>
         </member>
+        <member name="M:Amaoto.Texture.GetTexture">
+            <summary>
+            テクスチャを取得する。
+            </summary>
+            <returns>テクスチャ。</returns>
+        </member>
         <member name="P:Amaoto.Texture.IsEnable">
             <summary>
             有効かどうか。
@@ -1025,6 +1162,11 @@
         <member name="P:Amaoto.Texture.TextureSize">
             <summary>
             テクスチャのサイズを返します。
+            </summary>
+        </member>
+        <member name="P:Amaoto.Texture.ActualSize">
+            <summary>
+            拡大率を考慮した、描画されるときのサイズ。
             </summary>
         </member>
         <member name="T:Amaoto.BlendMode">
@@ -1097,6 +1239,38 @@
             右下
             </summary>
         </member>
+        <member name="T:Amaoto.TextureMask">
+            <summary>
+            テクスチャを使用したマスクを作成し、描画範囲を切り取ります。
+            </summary>
+        </member>
+        <member name="M:Amaoto.TextureMask.#ctor(System.Int32,System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="width"></param>
+            <param name="height"></param>
+        </member>
+        <member name="M:Amaoto.TextureMask.CreateMask(System.Action)">
+            <summary>
+            マスクを作る。
+            </summary>
+            <param name="mask">マスクにする内容。</param>
+            <returns>TextureMask。</returns>
+        </member>
+        <member name="M:Amaoto.TextureMask.Masking(System.Action,System.Boolean)">
+            <summary>
+            マスクを使用して描画する。
+            </summary>
+            <param name="masking">マスクする内容。</param>
+            <param name="reverse">マスクを反転するかどうか。</param>
+            <returns></returns>
+        </member>
+        <member name="M:Amaoto.TextureMask.Dispose">
+            <summary>
+            マスク画像を破棄する。
+            </summary>
+        </member>
         <member name="T:Amaoto.VirtualScreen">
             <summary>
             仮想スクリーン。
@@ -1109,14 +1283,23 @@
             <param name="width">横幅。</param>
             <param name="height">縦幅。</param>
         </member>
+        <member name="M:Amaoto.VirtualScreen.Draw(System.Action)">
+            <summary>
+            仮想スクリーンに描画する。
+            </summary>
+            <param name="drawing">テクスチャを描画するラムダ式。</param>
+            <returns>VirtualScreen。</returns>
+        </member>
         <member name="M:Amaoto.VirtualScreen.Draw(Amaoto.Texture,System.Single,System.Single,System.Nullable{System.Drawing.Rectangle})">
             <summary>
             仮想スクリーンに描画する。
+            ラムダ式によるDraw()を使用してください。
             </summary>
             <param name="texture">テクスチャ。</param>
             <param name="x">X座標。</param>
             <param name="y">Y座標。</param>
             <param name="rectangle">描画範囲。</param>
+            <returns>VirtualScreen。</returns>
         </member>
         <member name="M:Amaoto.VirtualScreen.ClearScreen">
             <summary>
@@ -1128,10 +1311,11 @@
             仮想スクリーンを破棄する。
             </summary>
         </member>
-        <member name="P:Amaoto.VirtualScreen.DefaultScreen">
+        <member name="M:Amaoto.VirtualScreen.GetTexture">
             <summary>
-            仮想スクリーンが生成される前のスクリーン。
+            仮想スクリーンのテクスチャを取得する。
             </summary>
+            <returns>仮想スクリーンのテクスチャ。</returns>
         </member>
         <member name="P:Amaoto.VirtualScreen.Texture">
             <summary>

@@ -74,6 +74,31 @@
             条件の範囲。
             </summary>
         </member>
+        <member name="T:Koioto.Support.CommonAssets">
+            <summary>
+            共通の素材。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.CommonAssets.Loading">
+            <summary>
+            読み込み中
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.CommonAssets.Card">
+            <summary>
+            カード画像。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.CommonAssets.PrimaryButton">
+            <summary>
+            プライマリ色のボタン。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.CommonAssets.SecondaryButton">
+            <summary>
+            セカンダリ色のボタン。
+            </summary>
+        </member>
         <member name="T:Koioto.Support.Difficulty">
             <summary>
             個々の譜面のコースを表すクラス。
@@ -437,6 +462,73 @@
             </summary>
             <param name="str">文字列。</param>
             <returns>コース名。</returns>
+        </member>
+        <member name="T:Koioto.Support.GUI.CardContentBuilder">
+            <summary>
+            カードの中身を生成する。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.GUI.CardContentBuilder.Build(Amaoto.ITextureReturnable,Amaoto.ITextureReturnable,Amaoto.ITextureReturnable,System.Int32,System.Int32)">
+            <summary>
+            カードの中身を生成する。
+            </summary>
+            <param name="title">タイトル。</param>
+            <param name="subTitle">サブタイトル。</param>
+            <param name="leading">リード文。</param>
+            <param name="padding">パディング。</param>
+            <param name="linePadding">行間。</param>
+            <returns>カードの中身。</returns>
+        </member>
+        <member name="T:Koioto.Support.GUI.GUINormalize">
+            <summary>
+            GUI部品の描画をテクスチャのように行うためのノーマライザ。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.GUI.GUINormalize.#ctor(Amaoto.GUI.DrawPart)">
+            <summary>
+            GUI部品をテクスチャのように扱えるメソッドを提供する。
+            </summary>
+            <param name="gui">GUI 部品。</param>
+        </member>
+        <member name="M:Koioto.Support.GUI.GUINormalize.Process(Amaoto.Mouse,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            GUI部品を更新する。
+            </summary>
+            <param name="mouse"></param>
+            <param name="pointX"></param>
+            <param name="pointY"></param>
+        </member>
+        <member name="P:Koioto.Support.GUI.GUINormalize.GUI">
+            <summary>
+            GUI 部品・
+            </summary>
+        </member>
+        <member name="T:Koioto.Support.GUI.LayoutBuilder">
+            <summary>
+            簡易的に複数テクスチャのレイアウトを組む静的クラス。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.GUI.LayoutBuilder.Column(Amaoto.ITextureReturnable[],System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            縦並びにテクスチャを結合する。
+            </summary>
+            <param name="children">テクスチャ。</param>
+            <param name="padding">パディング。</param>
+            <param name="spacing">テクスチャとテクスチャの間。</param>
+            <param name="width">横幅。</param>
+            <param name="height">縦幅。</param>
+            <returns>結合結果。</returns>
+        </member>
+        <member name="M:Koioto.Support.GUI.LayoutBuilder.Row(Amaoto.ITextureReturnable[],System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            横並びにテクスチャを結合する。
+            </summary>
+            <param name="children">テクスチャ。</param>
+            <param name="padding">パディング。</param>
+            <param name="spacing">テクスチャとテクスチャの間。</param>
+            <param name="width">横幅。</param>
+            <param name="height">縦幅。</param>
+            <returns>結合結果。</returns>
         </member>
         <member name="T:Koioto.Support.HitSide">
             <summary>
@@ -803,6 +895,11 @@
             Koiotoの設定。
             </summary>
         </member>
+        <member name="P:Koioto.Support.Bridge.CommonAssets">
+            <summary>
+            共通の素材。
+            </summary>
+        </member>
         <member name="P:Koioto.Support.Bridge.SystemSound">
             <summary>
             Koiotoのシステムサウンド。
@@ -916,6 +1013,16 @@
             スクリーンショットのプレビューを表示する。
             </summary>
         </member>
+        <member name="P:Koioto.Support.Settings.AutoStart">
+            <summary>
+            自動再生するかどうか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.KeepSongListScrolling">
+            <summary>
+            選曲画面のスクロール位置を記憶するかどうか。
+            </summary>
+        </member>
         <member name="T:Koioto.Support.SoundManager">
             <summary>
             サウンドマネージャー。
@@ -1005,6 +1112,21 @@
             システムサウンド。
             </summary>
         </member>
+        <member name="P:Koioto.Support.SystemSound.Decide">
+            <summary>
+            決定音。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.SystemSound.Cancel">
+            <summary>
+            キャンセル音。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.SystemSound.Select">
+            <summary>
+            選択音。
+            </summary>
+        </member>
         <member name="P:Koioto.Support.SystemSound.Don">
             <summary>
             面の音。
@@ -1018,6 +1140,33 @@
         <member name="P:Koioto.Support.SystemSound.Balloon">
             <summary>
             ふうせんが破裂した音。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Theme.Color.GetColorDX">
+            <summary>
+            DXライブラリで使われるuint型の色を取得する。
+            ※アルファ値除く。
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Koioto.Support.Theme.StringTexture">
+            <summary>
+            文字列テクスチャ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Theme.StringTexture.Font">
+            <summary>
+            文字のフォント。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Theme.StringTexture.ForeColor">
+            <summary>
+            文字色。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Theme.StringTexture.BackColor">
+            <summary>
+            縁色。
             </summary>
         </member>
         <member name="T:Koioto.Support.Theme.NumberTexture">
@@ -1107,6 +1256,14 @@
             ユーティリティクラス。
             </summary>
         </member>
+        <member name="M:Koioto.Support.Util.ThemeInit``1(System.String)">
+            <summary>
+            テーマのjsonファイルを読み込む。
+            </summary>
+            <typeparam name="T">テーマのクラス。</typeparam>
+            <param name="filePath">ファイルパス。</param>
+            <returns>デシリアライズ結果。</returns>
+        </member>
         <member name="M:Koioto.Support.Util.GetRectangleFromDigit(System.Int32,Koioto.Support.Theme.NumberTexture)">
             <summary>
             0～9の数字から、描画すべき範囲を求める。
@@ -1132,6 +1289,13 @@
         <member name="M:Koioto.Support.Util.GetFontRenderFromTheme(Koioto.Support.Theme.Font)">
             <summary>
             システムフォントのFontRenderを生成する。
+            </summary>
+            <param name="theme">テーマの定義。</param>
+            <returns>FontRender。</returns>
+        </member>
+        <member name="M:Koioto.Support.Util.GetFontRenderFromTheme(Koioto.Support.Theme.StringTexture)">
+            <summary>
+            StringTextureを適用したFontRenderを生成する。
             </summary>
             <param name="theme">テーマの定義。</param>
             <returns>FontRender。</returns>
@@ -1177,6 +1341,23 @@
             <param name="expandOrig">元のサイズより拡大するかどうか。</param>
             <returns>スケール率。</returns>
         </member>
+        <member name="M:Koioto.Support.Util.GetProperPositionFromReferencePoint(System.Int32,System.Int32,Amaoto.ReferencePoint)">
+            <summary>
+            ReferencePointと横幅縦幅から適切な位置を計算する。
+            </summary>
+            <param name="width">横幅</param>
+            <param name="height">縦幅</param>
+            <param name="referencePoint">ReferencePoint</param>
+            <returns>座標。</returns>
+        </member>
+        <member name="M:Koioto.Support.Util.GetProperGUIPosition(Koioto.Support.Theme.NormalTexture,Amaoto.GUI.DrawPart)">
+            <summary>
+            GUI の描画の適切な位置を計算する。
+            </summary>
+            <param name="normalTexture">NormalTexture。</param>
+            <param name="gui">GUI部品。</param>
+            <returns>適切な位置。</returns>
+        </member>
         <member name="M:Koioto.Support.Util.GetAnimator(Koioto.Support.Theme.AnimationType,System.Int32,System.Int32,System.Int32)">
             <summary>
             アニメーターを取得する。
@@ -1186,6 +1367,30 @@
             <param name="endPoint">終点。</param>
             <param name="timeUs">マイクロ秒。</param>
             <returns>アニメーター。</returns>
+        </member>
+        <member name="M:Koioto.Support.Util.GetTexturesFromDirectory(System.String,System.String)">
+            <summary>
+            そのディレクトリにある画像のテクスチャを取得します(名前順)
+            </summary>
+            <param name="dir">ディレクトリ。</param>
+            <param name="pattern">ファイル名のパターン。</param>
+            <returns>ディレクトリにある画像。</returns>
+        </member>
+        <member name="M:Koioto.Support.Util.GetLeftedReferencePoint(Amaoto.ReferencePoint)">
+            <summary>
+            左揃えにしたReferencePointを取得する。
+            例えば、Centerを引数とした場合、戻り値としてCenterLeftが取得できる。
+            </summary>
+            <param name="referencePoint">ReferencePoint</param>
+            <returns>左揃えにしたReferencePoint</returns>
+        </member>
+        <member name="M:Koioto.Support.Util.GetToppedReferencePoint(Amaoto.ReferencePoint)">
+            <summary>
+            上揃えにしたReferencePointを取得する。
+            例えば、Centerを引数とした場合、戻り値としてTopCenterが取得できる。
+            </summary>
+            <param name="referencePoint">ReferencePoint</param>
+            <returns>上揃えにしたReferencePoint</returns>
         </member>
     </members>
 </doc>
