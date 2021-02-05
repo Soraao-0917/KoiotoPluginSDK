@@ -9,9 +9,21 @@
             Amaoto クラス。
             </summary>
         </member>
-        <member name="M:Amaoto.Amaoto.Init">
+        <member name="M:Amaoto.Amaoto.Init(System.Action,System.Action)">
             <summary>
-            Amaoto の初期化をする。必ず Amaoto の使用前に呼び出す必要がある。
+            Amaoto と DXライブラリの初期化をする。必ず Amaoto の使用前に呼び出す必要がある。
+            </summary>
+            <param name="beforeInit">DxLib_Initの前に設定するメソッド。</param>
+            <param name="afterInit">DxLib_Initの後に設定するメソッド。</param>
+        </member>
+        <member name="M:Amaoto.Amaoto.End">
+            <summary>
+            Amaoto と DXライブラリの終了処理をする。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Amaoto.Loop">
+            <summary>
+            ループ直後に呼び出すメソッド。
             </summary>
         </member>
         <member name="M:Amaoto.Amaoto.SetLongClickNs(System.Int32)">
@@ -26,6 +38,11 @@
             </summary>
             <param name="debug">デバッグを行う。</param>
         </member>
+        <member name="M:Amaoto.Amaoto.HandleMouse">
+            <summary>
+            現在のフレームでマウス操作したと言うことにする。
+            </summary>
+        </member>
         <member name="P:Amaoto.Amaoto.LongClickMs">
             <summary>
             長押し時間。
@@ -35,6 +52,66 @@
             <summary>
             FontRenderのデバッグを行うかどうか。
             </summary>
+        </member>
+        <member name="P:Amaoto.Amaoto.MouseHandled">
+            <summary>
+            現在のフレームでマウス操作が行われたかどうか。
+            </summary>
+        </member>
+        <member name="T:Amaoto.AmaotoUtil">
+            <summary>
+            Amaoto 関係のユーティリティクラス。
+            </summary>
+        </member>
+        <member name="M:Amaoto.AmaotoUtil.GetRectangleGUI(Amaoto.GUI.DrawPart)">
+            <summary>
+            GUI部品から、そのGUIの矩形範囲を求める。
+            </summary>
+            <param name="gui">GUI部品。</param>
+            <returns>GUIの矩形範囲。</returns>
+        </member>
+        <member name="M:Amaoto.AmaotoUtil.GetProperScaleX(Amaoto.Texture,System.Int32,System.Boolean)">
+            <summary>
+            テクスチャのX軸の適切なスケール率を横幅から求める。
+            </summary>
+            <param name="texture">テクスチャ。</param>
+            <param name="width">横幅。</param>
+            <param name="expandOrig">元のサイズより拡大するかどうか。</param>
+            <returns>スケール率。</returns>
+        </member>
+        <member name="M:Amaoto.AmaotoUtil.GetProperScaleY(Amaoto.Texture,System.Int32,System.Boolean)">
+            <summary>
+            テクスチャのY軸の適切なスケール率を縦幅から求める。
+            </summary>
+            <param name="texture">テクスチャ。</param>
+            <param name="height">縦幅。</param>
+            <param name="expandOrig">元のサイズより拡大するかどうか。</param>
+            <returns>スケール率。</returns>
+        </member>
+        <member name="M:Amaoto.AmaotoUtil.GetProperPositionFromReferencePoint(System.Int32,System.Int32,Amaoto.ReferencePoint)">
+            <summary>
+            ReferencePointと横幅縦幅から適切な位置を計算する。
+            </summary>
+            <param name="width">横幅</param>
+            <param name="height">縦幅</param>
+            <param name="referencePoint">ReferencePoint</param>
+            <returns>座標。</returns>
+        </member>
+        <member name="M:Amaoto.AmaotoUtil.GetLeftedReferencePoint(Amaoto.ReferencePoint)">
+            <summary>
+            左揃えにしたReferencePointを取得する。
+            例えば、Centerを引数とした場合、戻り値としてCenterLeftが取得できる。
+            </summary>
+            <param name="referencePoint">ReferencePoint</param>
+            <returns>左揃えにしたReferencePoint</returns>
+        </member>
+        <member name="M:Amaoto.AmaotoUtil.GetToppedReferencePoint(Amaoto.ReferencePoint)">
+            <summary>
+            上揃えにしたReferencePointを取得する。
+            例えば、Centerを引数とした場合、戻り値としてTopCenterが取得できる。
+            </summary>
+            <param name="referencePoint">ReferencePoint</param>
+            <returns>上揃えにしたReferencePoint</returns>
         </member>
         <member name="T:Amaoto.AnimateTexture">
             <summary>
@@ -538,6 +615,76 @@
             <param name="blendMode">BlendMode列挙型。</param>
             <returns>ブレンドモードの定数。</returns>
         </member>
+        <member name="T:Amaoto.Filter">
+            <summary>
+            テクスチャにエフェクトを掛けるメソッドを集めた静的クラス。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Filter.Monotone(Amaoto.ITextureReturnable,System.Int32,System.Int32)">
+            <summary>
+            モノトーンフィルターを適用する。
+            </summary>
+            <param name="g">テクスチャ。</param>
+            <param name="cB">青色差。-255～255の範囲。</param>
+            <param name="cR">赤色差。-255～255の範囲。</param>
+        </member>
+        <member name="M:Amaoto.Filter.Gauss(Amaoto.ITextureReturnable,System.Int32,System.Int32)">
+            <summary>
+            ガウスフィルターを適用する。
+            </summary>
+            <param name="g">テクスチャ。</param>
+            <param name="width">ピクセル幅。8, 16, 32のいずれか。</param>
+            <param name="strength">ぼかしの強さ。100で約1ピクセル分。</param>
+        </member>
+        <member name="M:Amaoto.Filter.HueRel(Amaoto.ITextureReturnable,System.Int32)">
+            <summary>
+            色相フィルターを適用する。
+            </summary>
+            <param name="g">テクスチャ。</param>
+            <param name="hue">ピクセルの色相からどのくらい変えるか。-180～180の範囲。</param>
+        </member>
+        <member name="M:Amaoto.Filter.HueAbs(Amaoto.ITextureReturnable,System.Int32)">
+            <summary>
+            色相フィルターを適用する。
+            </summary>
+            <param name="g">テクスチャ。</param>
+            <param name="hue">色相。0～360の範囲。</param>
+        </member>
+        <member name="M:Amaoto.Filter.Saturation(Amaoto.ITextureReturnable,System.Int32)">
+            <summary>
+            彩度フィルターを適用する。
+            </summary>
+            <param name="g">テクスチャ。</param>
+            <param name="saturation">彩度。-255～の範囲。</param>
+        </member>
+        <member name="M:Amaoto.Filter.Brightness(Amaoto.ITextureReturnable,System.Int32)">
+            <summary>
+            輝度フィルターを適用する。
+            </summary>
+            <param name="g">テクスチャ。</param>
+            <param name="brightness">輝度。-255～255の範囲。</param>
+        </member>
+        <member name="M:Amaoto.Filter.HSB(Amaoto.ITextureReturnable,System.Boolean,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            HSBフィルターを適用する。
+            </summary>
+            <param name="g">テクスチャ。</param>
+            <param name="absHue">色相を統一(絶対値を用いる)するかどうか。</param>
+            <param name="hue">色相。</param>
+            <param name="saturation">彩度。</param>
+            <param name="brightness">輝度。</param>
+        </member>
+        <member name="M:Amaoto.Filter.Level(Amaoto.ITextureReturnable,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            レベル補正フィルターを適用する。
+            </summary>
+            <param name="g">テクスチャ。</param>
+            <param name="inputMin">入力レベルの最小値。0～255の範囲。</param>
+            <param name="inputMax">入力レベルの最大値。0～255の範囲。</param>
+            <param name="gamma">ガンマ値。100が1.0を表し、1～の範囲。</param>
+            <param name="outputMin">出力レベルの最小値。0～255の範囲。</param>
+            <param name="outputMax">出力レベルの最大値。0～255の範囲。</param>
+        </member>
         <member name="T:Amaoto.FontRender">
             <summary>
             文字テクスチャを生成するクラス。
@@ -548,7 +695,7 @@
             文字テクスチャを生成するクラスの初期化をします。
             </summary>
             <param name="fontFamily">書体名。</param>
-            <param name="fontSize">フォントサイズ。</param>
+            <param name="fontSize">フォントサイズ(px)。</param>
             <param name="edge">縁取りの大きさ。</param>
             <param name="fontStyle">フォントスタイル。</param>
         </member>
@@ -595,9 +742,28 @@
             現在のFPS。
             </summary>
         </member>
+        <member name="T:Amaoto.GUI.Center">
+            <summary>
+            上下中央揃えにGUI部品を描画する。
+            </summary>
+        </member>
+        <member name="M:Amaoto.GUI.Center.#ctor(Amaoto.GUI.DrawPart,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            上下中央揃えにGUI部品を描画する。
+            </summary>
+            <param name="child">子アイテム。</param>
+            <param name="padding">(オプション)パディング。</param>
+            <param name="width">(オプション)横幅。</param>
+            <param name="height">(オプション)縦幅。</param>
+        </member>
         <member name="M:Amaoto.GUI.CheckBox.Draw">
             <summary>
             GUI部品を描画する。
+            </summary>
+        </member>
+        <member name="E:Amaoto.GUI.CheckBox.Switched">
+            <summary>
+            チェックボックスが切り替わった。
             </summary>
         </member>
         <member name="T:Amaoto.GUI.Button">
@@ -619,6 +785,49 @@
             GUI部品を描画する。
             </summary>
         </member>
+        <member name="M:Amaoto.GUI.Button.ChangeContent(Amaoto.ITextureReturnable)">
+            <summary>
+            ボタンの中身を変更する。
+            </summary>
+            <param name="content">ボタンの中身。</param>
+        </member>
+        <member name="M:Amaoto.GUI.Button.ChangeSize(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            ボタンのサイズを変更する。
+            </summary>
+            <param name="width">横幅。</param>
+            <param name="height">縦幅。</param>
+        </member>
+        <member name="T:Amaoto.GUI.Column">
+            <summary>
+            縦並びにGUIを配置する。
+            </summary>
+        </member>
+        <member name="M:Amaoto.GUI.Column.#ctor(Amaoto.GUI.DrawPart[],System.Int32,System.Int32)">
+            <summary>
+            縦並びにGUIを配置する。
+            </summary>
+            <param name="children">子アイテム。</param>
+            <param name="padding">パディング。</param>
+            <param name="spacing">GUIとGUIの間。</param>
+        </member>
+        <member name="M:Amaoto.GUI.Column.ChangePadding(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            パディング、間隔を変更する。
+            </summary>
+            <param name="padding">パディング。nullだと前の設定を引き継ぐ。</param>
+            <param name="spacing">GUIとGUIの間。nullだと前の設定を引き継ぐ。</param>
+        </member>
+        <member name="T:Amaoto.GUI.Container">
+            <summary>
+            決まったサイズを持つコンテナを生成する。
+            </summary>
+        </member>
+        <member name="M:Amaoto.GUI.Container.#ctor(System.Int32,System.Int32,System.Drawing.Color)">
+            <summary>
+            決まったサイズを持つコンテナを生成する。
+            </summary>
+        </member>
         <member name="T:Amaoto.GUI.DrawPart">
             <summary>
             GUI部品。
@@ -631,11 +840,14 @@
             <param name="width">横幅。</param>
             <param name="height">縦幅。</param>
         </member>
-        <member name="M:Amaoto.GUI.DrawPart.Update(Amaoto.Mouse,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+        <member name="M:Amaoto.GUI.DrawPart.Update(System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
             GUI部品を更新する。
+            更新の優先順位は子アイテムが先。
+            イベントにひとつでもデリゲートが追加されていれば、自動的にHandleMouseが呼び出される。
+            子アイテムでHandleMouseが呼び出されたときは、他の子アイテム及び親アイテムのクリック判定は行われない。
             </summary>
-            <param name="mouse">マウス。</param>
+            <param name="canHandle">クリック判定を行うかどうか。これにかかわらず、MouseHandledがtrueであれば常にクリック判定を行いません。</param>
             <param name="pointX">マウスの相対X座標。</param>
             <param name="pointY">マウスの相対Y座標。</param>
         </member>
@@ -644,10 +856,70 @@
             GUI部品を描画する。
             </summary>
         </member>
+        <member name="M:Amaoto.GUI.DrawPart.Build">
+            <summary>
+            現在のプロパティで、GUI部品を再生成する。
+            子アイテムも再生成される。
+            </summary>
+        </member>
         <member name="M:Amaoto.GUI.DrawPart.StartDragging">
             <summary>
             ドラッグされたことを通知して、クリックイベントを発生させないようにする。
             </summary>
+        </member>
+        <member name="M:Amaoto.GUI.DrawPart.GetRectangle">
+            <summary>
+            GUIの範囲を取得する。
+            </summary>
+            <returns>GUIの範囲。</returns>
+        </member>
+        <member name="M:Amaoto.GUI.DrawPart.IsOutSide">
+            <summary>
+            GUI部品の中にマウスがあるかどうか。
+            </summary>
+            <returns>マウスがあるかどうか。</returns>
+        </member>
+        <member name="M:Amaoto.GUI.DrawPart.InvokeClicked(Amaoto.GUI.MouseClickEventArgs)">
+            <summary>
+            クリックイベントを発火させる。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Amaoto.GUI.DrawPart.InvokeLongClicked(Amaoto.GUI.MouseClickEventArgs)">
+            <summary>
+            ロングクリックイベントを発火させる。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Amaoto.GUI.DrawPart.InvokeOnMouseDown(Amaoto.GUI.MouseClickEventArgs)">
+            <summary>
+            マウスダウンイベントを発火させる。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Amaoto.GUI.DrawPart.InvokeOnMouseUp(Amaoto.GUI.MouseClickEventArgs)">
+            <summary>
+            マウスアップイベントを発火させる。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Amaoto.GUI.DrawPart.InvokeOnHovering(Amaoto.GUI.MouseClickEventArgs)">
+            <summary>
+            マウスホバリングイベントを発火させる。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Amaoto.GUI.DrawPart.InvokeOnMouseEnter(Amaoto.GUI.MouseClickEventArgs)">
+            <summary>
+            マウスエンターイベントを発火させる。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Amaoto.GUI.DrawPart.InvokeOnMouseLeave(Amaoto.GUI.MouseClickEventArgs)">
+            <summary>
+            マウスリーブイベントを発火させる。
+            </summary>
+            <param name="e">イベント引数。</param>
         </member>
         <member name="P:Amaoto.GUI.DrawPart.X">
             <summary>
@@ -682,6 +954,31 @@
         <member name="P:Amaoto.GUI.DrawPart.Child">
             <summary>
             子アイテム。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.DrawPart.MousePoint">
+            <summary>
+            相対座標。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.DrawPart.ShouldBuild">
+            <summary>
+            ビルドするべきか。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.DrawPart.HasDelegate">
+            <summary>
+            イベントのどれかにデリゲートが紐付けされている。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.DrawPart.Enabled">
+            <summary>
+            GUI 部品が有効かどうか。
+            </summary>
+        </member>
+        <member name="F:Amaoto.GUI.DrawPart.LongClickCounter">
+            <summary>
+            ロングクリックを検知するためのカウンター。
             </summary>
         </member>
         <member name="E:Amaoto.GUI.DrawPart.Clicked">
@@ -719,20 +1016,84 @@
             マウスが要素内から出て行った。
             </summary>
         </member>
-        <member name="P:Amaoto.GUI.DrawPart.MousePoint">
+        <member name="E:Amaoto.GUI.DrawPart.OnEnabled">
             <summary>
-            相対座標。
+            有効になった。
             </summary>
         </member>
-        <member name="F:Amaoto.GUI.DrawPart.LongClickCounter">
+        <member name="E:Amaoto.GUI.DrawPart.OnDisabled">
             <summary>
-            ロングクリックを検知するためのカウンター。
+            無効になった。
+            </summary>
+        </member>
+        <member name="E:Amaoto.GUI.DrawPart.OnBuilt">
+            <summary>
+            Build();が呼び出された。
+            </summary>
+        </member>
+        <member name="T:Amaoto.GUI.GUINormalize">
+            <summary>
+            GUI部品の描画をテクスチャのように行うためのノーマライザ。
+            </summary>
+        </member>
+        <member name="M:Amaoto.GUI.GUINormalize.#ctor(Amaoto.GUI.DrawPart)">
+            <summary>
+            GUI部品をテクスチャのように扱えるメソッドを提供する。
+            </summary>
+            <param name="gui">GUI 部品。</param>
+        </member>
+        <member name="M:Amaoto.GUI.GUINormalize.Process(System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            GUI部品を更新する。
+            </summary>
+            <param name="pointX"></param>
+            <param name="pointY"></param>
+        </member>
+        <member name="P:Amaoto.GUI.GUINormalize.GUI">
+            <summary>
+            GUI 部品。
             </summary>
         </member>
         <member name="T:Amaoto.GUI.Image">
             <summary>
             ただ画像表示を行うだけの GUI 部品。
             </summary>
+        </member>
+        <member name="M:Amaoto.GUI.Image.#ctor(Amaoto.Texture,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            ただ画像表示を行うだけの GUI 部品。
+            </summary>
+            <param name="texture">テクスチャ。</param>
+            <param name="width">(オプション)横幅。指定しない場合は画像の横幅がそのまま使用される。</param>
+            <param name="height">(オプション)縦幅。指定しない場合は画像の縦幅がそのまま使用される。</param>
+        </member>
+        <member name="M:Amaoto.GUI.Image.ChangeImage(Amaoto.Texture)">
+            <summary>
+            新しい画像で置換する。
+            GUIのサイズは初期化時のサイズがそのまま使用される。
+            </summary>
+            <param name="texture">テクスチャ。</param>
+        </member>
+        <member name="M:Amaoto.GUI.Image.ChangeSize(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            画像のサイズを変更する。
+            </summary>
+            <param name="width">横幅。nullだと前の設定を引き継ぐ。</param>
+            <param name="height">縦幅。nullだと前の設定を引き継ぐ。</param>
+        </member>
+        <member name="T:Amaoto.GUI.Left">
+            <summary>
+            上下中央、左揃えにGUI部品を描画する。
+            </summary>
+        </member>
+        <member name="M:Amaoto.GUI.Left.#ctor(Amaoto.GUI.DrawPart,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            上下中央、左揃えにGUI部品を描画する。
+            </summary>
+            <param name="child">子アイテム。</param>
+            <param name="padding">(オプション)パディング。</param>
+            <param name="width">(オプション)横幅。</param>
+            <param name="height">(オプション)縦幅。</param>
         </member>
         <member name="T:Amaoto.GUI.MouseClickEventArgs">
             <summary>
@@ -756,34 +1117,240 @@
             Y座標。
             </summary>
         </member>
-        <member name="T:Amaoto.Input">
+        <member name="T:Amaoto.GUI.NumericUpDown">
             <summary>
-            入力を管理するクラス。
+            数値を上げ下げするGUI部品。
             </summary>
         </member>
-        <member name="M:Amaoto.Input.#ctor">
+        <member name="M:Amaoto.GUI.NumericUpDown.#ctor(Amaoto.FontRender,Amaoto.ITextureReturnable,System.Int32,System.Int32,System.Decimal,System.Decimal,System.Decimal,System.Decimal)">
             <summary>
-            入力を管理するクラス。
+            数値を上げ下げするGUI部品
+            </summary>
+            <param name="fontRender">FontRender。</param>
+            <param name="buttonTexture">ボタンに使われる背景。</param>
+            <param name="width">横幅。</param>
+            <param name="height">縦幅。</param>
+        </member>
+        <member name="P:Amaoto.GUI.NumericUpDown.Minimum">
+            <summary>
+            最小値。
             </summary>
         </member>
-        <member name="M:Amaoto.Input.Update">
+        <member name="P:Amaoto.GUI.NumericUpDown.Maximum">
             <summary>
-            キー入力の状態をチェックします。毎フレーム呼び出す必要があります。
+            最大値。
             </summary>
         </member>
-        <member name="M:Amaoto.Input.IsPushedKey(System.Int32)">
+        <member name="P:Amaoto.GUI.NumericUpDown.Step">
             <summary>
-            そのキーが入力されたかどうかチェックします。
+            ボタンを押したときに上昇する数。
             </summary>
-            <param name="key">キーコード。</param>
-            <returns>入力されたかどうか。</returns>
         </member>
-        <member name="M:Amaoto.Input.IsPushingKey(System.Int32)">
+        <member name="P:Amaoto.GUI.NumericUpDown.Value">
             <summary>
-            そのキーが入力されているかどうかチェックします。
+            現在の値。
             </summary>
-            <param name="key">キーコード。</param>
-            <returns>入力されているかどうか。</returns>
+        </member>
+        <member name="E:Amaoto.GUI.NumericUpDown.ValueChanged">
+            <summary>
+            値が変更された。
+            これは、丸め処理によって値が変わったときにも呼び出される (2回呼び出される可能性がある)。
+            </summary>
+        </member>
+        <member name="E:Amaoto.GUI.NumericUpDown.Increased">
+            <summary>
+            増加ボタンをクリックして増加した。。
+            直接数値を変更して値が増加した場合は、このイベントは呼び出されない。
+            </summary>
+        </member>
+        <member name="E:Amaoto.GUI.NumericUpDown.Decreased">
+            <summary>
+            現象ボタンをクリックして減少した。
+            直接数値を変更して値が減少した場合は、このイベントは呼び出されない。
+            </summary>
+        </member>
+        <member name="E:Amaoto.GUI.NumericUpDown.ButtonClicked">
+            <summary>
+            減少または増加のボタンがクリックされた。
+            効果音やエフェクト用。
+            </summary>
+        </member>
+        <member name="T:Amaoto.GUI.Right">
+            <summary>
+            上下中央、右揃えにGUI部品を描画する。
+            </summary>
+        </member>
+        <member name="M:Amaoto.GUI.Right.#ctor(Amaoto.GUI.DrawPart,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            上下中央、右揃えにGUI部品を描画する。
+            </summary>
+            <param name="child">子アイテム。</param>
+            <param name="padding">(オプション)パディング。</param>
+            <param name="width">(オプション)横幅。</param>
+            <param name="height">(オプション)縦幅。</param>
+        </member>
+        <member name="T:Amaoto.GUI.Row">
+            <summary>
+            横並びにGUIを配置する。
+            </summary>
+        </member>
+        <member name="M:Amaoto.GUI.Row.#ctor(Amaoto.GUI.DrawPart[],System.Int32,System.Int32)">
+            <summary>
+            横並びにGUIを配置する。
+            </summary>
+            <param name="children">子アイテム。</param>
+            <param name="padding">パディング。</param>
+            <param name="spacing">GUIとGUIの間。</param>
+        </member>
+        <member name="M:Amaoto.GUI.Row.ChangePadding(System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            パディング、間隔を変更する。
+            </summary>
+            <param name="padding">パディング。nullだと前の設定を引き継ぐ。</param>
+            <param name="spacing">GUIとGUIの間。nullだと前の設定を引き継ぐ。</param>
+        </member>
+        <member name="T:Amaoto.GUI.Scroller">
+            <summary>
+            スクロールを提供する。
+            </summary>
+        </member>
+        <member name="M:Amaoto.GUI.Scroller.#ctor(System.Int32,System.Int32,System.Double,System.Double,System.Int32,System.Int32)">
+            <summary>
+            スクロールを提供する。
+            </summary>
+            <param name="width">表示可能な横幅。。</param>
+            <param name="height">表示可能な縦幅。</param>
+            <param name="sensitivity">マウスホイールの感度。</param>
+            <param name="friction">スクロール摩擦度。</param>
+            <param name="bounceDuration">終端のバウンスのスクロール時間。</param>
+            <param name="wheelscrollDuration">ホイールのスクロール時間。</param>
+        </member>
+        <member name="M:Amaoto.GUI.Scroller.Update(System.Boolean,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            スクロールを更新する。
+            </summary>
+            <param name="canHandle"></param>
+            <param name="pointX"></param>
+            <param name="pointY"></param>
+        </member>
+        <member name="M:Amaoto.GUI.Scroller.Draw">
+            <summary>
+            表示可能領域に描画する。
+            </summary>
+        </member>
+        <member name="M:Amaoto.GUI.Scroller.ScrollTo(System.ValueTuple{System.Double,System.Double},System.Int32)">
+            <summary>
+            指定位置にスクロールするアニメーションを開始する。
+            </summary>
+            <param name="pos">位置。</param>
+        </member>
+        <member name="M:Amaoto.GUI.Scroller.CalcPosition">
+            <summary>
+            スクロール位置の計算をする。
+            </summary>
+        </member>
+        <member name="M:Amaoto.GUI.Scroller.FrictionCounter_Looped(System.Object,System.EventArgs)">
+            <summary>
+            摩擦カウンターが更新されループした。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Amaoto.GUI.Scroller.Counter_Ended(System.Object,System.EventArgs)">
+            <summary>
+            ScrollToカウンターが終了した。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:Amaoto.GUI.Scroller.Scroller_Scrolled(System.Object,System.EventArgs)">
+            <summary>
+            スクロールが終わった。ここでは、バウンスの処理を行っています。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:Amaoto.GUI.Scroller.Velocity">
+            <summary>
+            スクロール速度。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.Scroller.Position">
+            <summary>
+            現在のスクロール位置。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.Scroller.Sensitivity">
+            <summary>
+            ホイール回転時のスクロール感度。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.Scroller.Friction">
+            <summary>
+            スクロール摩擦。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.Scroller.OldMousePos">
+            <summary>
+            前フレームのマウスの位置。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.Scroller.ClickedMousePos">
+            <summary>
+            クリックしたときのマウス座標。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.Scroller.NowMousePos">
+            <summary>
+            現在フレームのマウスの位置。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.Scroller.DuringScrollTo">
+            <summary>
+            ScrollTo中かどうか。
+            </summary>
+        </member>
+        <member name="E:Amaoto.GUI.Scroller.Scrolled">
+            <summary>
+            スクロールした。
+            </summary>
+        </member>
+        <member name="E:Amaoto.GUI.Scroller.Scrolling">
+            <summary>
+            スクロールしている。
+            </summary>
+        </member>
+        <member name="T:Amaoto.GUI.Tab">
+            <summary>
+            タブを提供する。
+            </summary>
+        </member>
+        <member name="M:Amaoto.GUI.Tab.#ctor(Amaoto.GUI.DrawPart[],Amaoto.ITextureReturnable,Amaoto.ITextureReturnable[],System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            タブを提供する。
+            </summary>
+            <param name="children">タブ要素。</param>
+            <param name="tabBackground">タブの背景。</param>
+            <param name="tabNames">タブ名。</param>
+            <param name="tabWidth">タブの横幅。はみ出す場合は、スクロールできるようになる。</param>
+            <param name="tabHeight">タブの縦幅。</param>
+            <param name="width">横幅。</param>
+            <param name="height">縦幅。タブの高さを含む。</param>
+        </member>
+        <member name="E:Amaoto.GUI.Tab.TabClicked">
+            <summary>
+            タブのボタンがクリックされた。
+            </summary>
+        </member>
+        <member name="E:Amaoto.GUI.Tab.ShowingTabChanged">
+            <summary>
+            タブが切り替わった。
+            </summary>
+        </member>
+        <member name="P:Amaoto.GUI.Tab.ShowingTabIndex">
+            <summary>
+            開いているタブ。
+            </summary>
         </member>
         <member name="T:Amaoto.ITextureReturnable">
             <summary>
@@ -796,36 +1363,89 @@
             </summary>
             <returns>テクスチャ。</returns>
         </member>
-        <member name="T:Amaoto.Mouse">
+        <member name="T:Amaoto.Key">
             <summary>
-            マウス操作。
+            キーボードを管理するクラス。
             </summary>
         </member>
-        <member name="M:Amaoto.Mouse.#ctor">
+        <member name="M:Amaoto.Key.Update">
             <summary>
-            マウス操作。
+            キーボード入力の状態をチェックします。毎フレーム呼び出す必要があります。
+            </summary>
+        </member>
+        <member name="M:Amaoto.Key.IsPushed(System.Int32)">
+            <summary>
+            そのキーを押したかどうかチェックします。
+            </summary>
+            <param name="key">キーコード。</param>
+            <returns>押したかどうか。</returns>
+        </member>
+        <member name="M:Amaoto.Key.IsPushing(System.Int32)">
+            <summary>
+            そのキーを押しているかどうかチェックします。
+            </summary>
+            <param name="key">キーコード。</param>
+            <returns>押しているかどうか。</returns>
+        </member>
+        <member name="M:Amaoto.Key.IsLeft(System.Int32)">
+            <summary>
+            そのキーを離したかどうかチェックします。
+            </summary>
+            <param name="key">キーコード。</param>
+            <returns>離したかどうか。</returns>
+        </member>
+        <member name="T:Amaoto.LayoutBuilder">
+            <summary>
+            簡易的に複数テクスチャのレイアウトを組む静的クラス。
+            </summary>
+        </member>
+        <member name="M:Amaoto.LayoutBuilder.Column(Amaoto.ITextureReturnable[],System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            縦並びにテクスチャを結合する。
+            </summary>
+            <param name="children">テクスチャ。</param>
+            <param name="padding">パディング。</param>
+            <param name="spacing">テクスチャとテクスチャの間。</param>
+            <param name="width">横幅。</param>
+            <param name="height">縦幅。</param>
+            <returns>結合結果。</returns>
+        </member>
+        <member name="M:Amaoto.LayoutBuilder.Row(Amaoto.ITextureReturnable[],System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            横並びにテクスチャを結合する。
+            </summary>
+            <param name="children">テクスチャ。</param>
+            <param name="padding">パディング。</param>
+            <param name="spacing">テクスチャとテクスチャの間。</param>
+            <param name="width">横幅。</param>
+            <param name="height">縦幅。</param>
+            <returns>結合結果。</returns>
+        </member>
+        <member name="T:Amaoto.Mouse">
+            <summary>
+            マウス操作を管理するクラス。
             </summary>
         </member>
         <member name="M:Amaoto.Mouse.Update">
             <summary>
-            マウスの入力を処理する。
+            マウスの入力を処理する。必ず毎フレーム呼ぶ必要がある。
             </summary>
         </member>
-        <member name="M:Amaoto.Mouse.IsPushedButton(Amaoto.MouseButton)">
+        <member name="M:Amaoto.Mouse.IsPushed(Amaoto.MouseButton)">
             <summary>
             マウスが押されたかどうかチェックする。
             </summary>
             <param name="mouseButton">ボタン。</param>
             <returns>押されたかどうか。</returns>
         </member>
-        <member name="M:Amaoto.Mouse.IsPushingButton(Amaoto.MouseButton)">
+        <member name="M:Amaoto.Mouse.IsPushing(Amaoto.MouseButton)">
             <summary>
             マウスが押されているかどうかチェックする。
             </summary>
             <param name="mouseButton">ボタン。</param>
             <returns>押されているかどうか。</returns>
         </member>
-        <member name="M:Amaoto.Mouse.IsLeftButton(Amaoto.MouseButton)">
+        <member name="M:Amaoto.Mouse.IsLeft(Amaoto.MouseButton)">
             <summary>
             マウスのボタンが離されたかどうかチェックする。
             </summary>
@@ -838,9 +1458,14 @@
             奥に回すと正の数になる。
             </summary>
         </member>
-        <member name="P:Amaoto.Mouse.Point">
+        <member name="P:Amaoto.Mouse.X">
             <summary>
-            マウス座標。
+            マウスX座標。
+            </summary>
+        </member>
+        <member name="P:Amaoto.Mouse.Y">
+            <summary>
+            マウスY座標。
             </summary>
         </member>
         <member name="T:Amaoto.MouseButton">
@@ -1094,7 +1719,7 @@
             </summary>
             <param name="bitmap">ビットマップ。</param>
         </member>
-        <member name="M:Amaoto.Texture.Draw(System.Single,System.Single,System.Nullable{System.Drawing.Rectangle})">
+        <member name="M:Amaoto.Texture.Draw(System.Double,System.Double,System.Nullable{System.Drawing.Rectangle})">
             <summary>
             描画します。
             </summary>
@@ -1320,6 +1945,11 @@
         <member name="P:Amaoto.VirtualScreen.Texture">
             <summary>
             仮想スクリーンのハンドル。
+            </summary>
+        </member>
+        <member name="P:Amaoto.VirtualScreen.ScreenSize">
+            <summary>
+            仮想スクリーンのサイズ。
             </summary>
         </member>
     </members>

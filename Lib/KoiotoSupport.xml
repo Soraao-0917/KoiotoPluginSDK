@@ -479,56 +479,16 @@
             <param name="linePadding">行間。</param>
             <returns>カードの中身。</returns>
         </member>
-        <member name="T:Koioto.Support.GUI.GUINormalize">
+        <member name="T:Koioto.Support.GUI.Dialog">
             <summary>
-            GUI部品の描画をテクスチャのように行うためのノーマライザ。
+            ダイアログ。
             </summary>
         </member>
-        <member name="M:Koioto.Support.GUI.GUINormalize.#ctor(Amaoto.GUI.DrawPart)">
+        <member name="M:Koioto.Support.GUI.Dialog.#ctor(Amaoto.GUI.DrawPart,System.Boolean)">
             <summary>
-            GUI部品をテクスチャのように扱えるメソッドを提供する。
+            ダイアログ機能を提供する。
             </summary>
-            <param name="gui">GUI 部品。</param>
-        </member>
-        <member name="M:Koioto.Support.GUI.GUINormalize.Process(Amaoto.Mouse,System.Nullable{System.Int32},System.Nullable{System.Int32})">
-            <summary>
-            GUI部品を更新する。
-            </summary>
-            <param name="mouse"></param>
-            <param name="pointX"></param>
-            <param name="pointY"></param>
-        </member>
-        <member name="P:Koioto.Support.GUI.GUINormalize.GUI">
-            <summary>
-            GUI 部品・
-            </summary>
-        </member>
-        <member name="T:Koioto.Support.GUI.LayoutBuilder">
-            <summary>
-            簡易的に複数テクスチャのレイアウトを組む静的クラス。
-            </summary>
-        </member>
-        <member name="M:Koioto.Support.GUI.LayoutBuilder.Column(Amaoto.ITextureReturnable[],System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})">
-            <summary>
-            縦並びにテクスチャを結合する。
-            </summary>
-            <param name="children">テクスチャ。</param>
-            <param name="padding">パディング。</param>
-            <param name="spacing">テクスチャとテクスチャの間。</param>
-            <param name="width">横幅。</param>
-            <param name="height">縦幅。</param>
-            <returns>結合結果。</returns>
-        </member>
-        <member name="M:Koioto.Support.GUI.LayoutBuilder.Row(Amaoto.ITextureReturnable[],System.Int32,System.Int32,System.Nullable{System.Int32},System.Nullable{System.Int32})">
-            <summary>
-            横並びにテクスチャを結合する。
-            </summary>
-            <param name="children">テクスチャ。</param>
-            <param name="padding">パディング。</param>
-            <param name="spacing">テクスチャとテクスチャの間。</param>
-            <param name="width">横幅。</param>
-            <param name="height">縦幅。</param>
-            <returns>結合結果。</returns>
+            <param name="content">ダイアログの中身。</param>
         </member>
         <member name="T:Koioto.Support.HitSide">
             <summary>
@@ -620,7 +580,7 @@
             コンボ数をひとつ増加させる。
             </summary>
         </member>
-        <member name="M:Koioto.Support.Log.ComboLog.ResetCombo">
+        <member name="M:Koioto.Support.Log.ComboLog.Reset">
             <summary>
             コンボ数をリセットする。
             </summary>
@@ -651,6 +611,11 @@
             判定をログに追加する。
             </summary>
             <param name="judge">判定。</param>
+        </member>
+        <member name="M:Koioto.Support.Log.JudgeLog.Reset">
+            <summary>
+            ログをクリアする。
+            </summary>
         </member>
         <member name="P:Koioto.Support.Log.JudgeLog.Perfect">
             <summary>
@@ -786,6 +751,11 @@
             <param name="inputTime">入力時間。</param>
             <param name="hitSide">HitSide。</param>
         </member>
+        <member name="M:Koioto.Support.Log.ReplayLog.Reset">
+            <summary>
+            ログをクリアする。
+            </summary>
+        </member>
         <member name="P:Koioto.Support.Log.ReplayLog.InputList">
             <summary>
             入力を管理するクラス。
@@ -805,6 +775,11 @@
         <member name="M:Koioto.Support.Log.ScoreLog.AddSubScore">
             <summary>
             サブスコアに追加する。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Log.ScoreLog.Reset">
+            <summary>
+            ログをクリアする。
             </summary>
         </member>
         <member name="P:Koioto.Support.Log.ScoreLog.Main">
@@ -938,7 +913,10 @@
         </member>
         <member name="M:Koioto.Support.Player`1.GetPlayer(System.Int32)">
             <summary>
-            Tを返す。
+            プレイヤー人数に応じてTを返す。
+            0を引数に指定すると、シングルプレイの1Pが返される。
+            1を引数に指定すると、ダブルプレイの1Pが返される。
+            2を引数に指定すると、ダブルプレイの2Pが返される。
             </summary>
             <param name="player">プレイヤー人数。</param>
             <returns>T。</returns>
@@ -1021,6 +999,26 @@
         <member name="P:Koioto.Support.Settings.KeepSongListScrolling">
             <summary>
             選曲画面のスクロール位置を記憶するかどうか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.PlayingOption.AutoPlay">
+            <summary>
+            オートプレイ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.PlayingOption.ScrollSpeed">
+            <summary>
+            スクロール速度
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.PlayingOption.ShowNotes">
+            <summary>
+            ノーツを表示するか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.PlayingOption.ShowSENotes">
+            <summary>
+            SENotesを表示するか。
             </summary>
         </member>
         <member name="T:Koioto.Support.SoundManager">
@@ -1323,33 +1321,6 @@
             <param name="num">自然数。</param>
             <returns>各桁の配列(反転)。</returns>
         </member>
-        <member name="M:Koioto.Support.Util.GetProperScaleX(Amaoto.Texture,System.Int32,System.Boolean)">
-            <summary>
-            テクスチャのX軸の適切なスケール率を横幅から求める。
-            </summary>
-            <param name="texture">テクスチャ。</param>
-            <param name="width">横幅。</param>
-            <param name="expandOrig">元のサイズより拡大するかどうか。</param>
-            <returns>スケール率。</returns>
-        </member>
-        <member name="M:Koioto.Support.Util.GetProperScaleY(Amaoto.Texture,System.Int32,System.Boolean)">
-            <summary>
-            テクスチャのY軸の適切なスケール率を縦幅から求める。
-            </summary>
-            <param name="texture">テクスチャ。</param>
-            <param name="height">縦幅。</param>
-            <param name="expandOrig">元のサイズより拡大するかどうか。</param>
-            <returns>スケール率。</returns>
-        </member>
-        <member name="M:Koioto.Support.Util.GetProperPositionFromReferencePoint(System.Int32,System.Int32,Amaoto.ReferencePoint)">
-            <summary>
-            ReferencePointと横幅縦幅から適切な位置を計算する。
-            </summary>
-            <param name="width">横幅</param>
-            <param name="height">縦幅</param>
-            <param name="referencePoint">ReferencePoint</param>
-            <returns>座標。</returns>
-        </member>
         <member name="M:Koioto.Support.Util.GetProperGUIPosition(Koioto.Support.Theme.NormalTexture,Amaoto.GUI.DrawPart)">
             <summary>
             GUI の描画の適切な位置を計算する。
@@ -1375,22 +1346,6 @@
             <param name="dir">ディレクトリ。</param>
             <param name="pattern">ファイル名のパターン。</param>
             <returns>ディレクトリにある画像。</returns>
-        </member>
-        <member name="M:Koioto.Support.Util.GetLeftedReferencePoint(Amaoto.ReferencePoint)">
-            <summary>
-            左揃えにしたReferencePointを取得する。
-            例えば、Centerを引数とした場合、戻り値としてCenterLeftが取得できる。
-            </summary>
-            <param name="referencePoint">ReferencePoint</param>
-            <returns>左揃えにしたReferencePoint</returns>
-        </member>
-        <member name="M:Koioto.Support.Util.GetToppedReferencePoint(Amaoto.ReferencePoint)">
-            <summary>
-            上揃えにしたReferencePointを取得する。
-            例えば、Centerを引数とした場合、戻り値としてTopCenterが取得できる。
-            </summary>
-            <param name="referencePoint">ReferencePoint</param>
-            <returns>上揃えにしたReferencePoint</returns>
         </member>
     </members>
 </doc>
