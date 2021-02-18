@@ -433,6 +433,12 @@
             </summary>
             <returns>アニメーションが全て完了しているかどうか。</returns>
         </member>
+        <member name="M:Amaoto.Animation.Sequencer.IsAnimating">
+            <summary>
+            アニメーション中であるかどうか。
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Amaoto.Animation.Sequencer.GetAnimation">
             <summary>
             現在のアニメーターからアニメーション結果を得る。
@@ -452,6 +458,30 @@
         <member name="E:Amaoto.Animation.Sequencer.SequenceEnded">
             <summary>
             アニメーションシーケンサーがすべてのアニメーションっを再生し終了した。
+            </summary>
+        </member>
+        <member name="T:Amaoto.AtlasTexture">
+            <summary>
+            アトラスを生成する。
+            単一の画像から複数のテクスチャを切り出すことで、描画の高速化を実現する。
+            </summary>
+        </member>
+        <member name="M:Amaoto.AtlasTexture.#ctor(System.String)">
+            <summary>
+            アトラスを生成する。
+            </summary>
+            <param name="fileName">アトラスのファイル名。</param>
+        </member>
+        <member name="M:Amaoto.AtlasTexture.GetTexture(System.Drawing.Rectangle)">
+            <summary>
+            アトラスからテクスチャを取得する。
+            </summary>
+            <param name="rectangle">矩形。</param>
+            <returns>テクスチャ。</returns>
+        </member>
+        <member name="M:Amaoto.AtlasTexture.Dispose">
+            <summary>
+            アトラスを破棄する。
             </summary>
         </member>
         <member name="T:Amaoto.ConfigManager">
@@ -1646,6 +1676,24 @@
             </summary>
             <param name="playFromBegin">はじめから</param>
         </member>
+        <member name="M:Amaoto.Sound.SetNextVolue(System.Double)">
+            <summary>
+            次再生されるときの音量を設定します。プロパティは変更されません。
+            </summary>
+            <param name="volume"></param>
+        </member>
+        <member name="M:Amaoto.Sound.SetNextPan(System.Double)">
+            <summary>
+            次再生されるときのパンを設定します。プロパティは変更されません。
+            </summary>
+            <param name="pan"></param>
+        </member>
+        <member name="M:Amaoto.Sound.SetNextSpeed(System.Double)">
+            <summary>
+            次再生されるときの再生速度を変更します。プロパティは変更されません。
+            </summary>
+            <param name="value"></param>
+        </member>
         <member name="M:Amaoto.Sound.Stop">
             <summary>
             サウンドを停止します。
@@ -1689,6 +1737,11 @@
         <member name="P:Amaoto.Sound.PlaySpeed">
             <summary>
             再生速度を倍率で変更する。
+            </summary>
+        </member>
+        <member name="P:Amaoto.Sound.Frequency">
+            <summary>
+            音声の周波数。
             </summary>
         </member>
         <member name="T:Amaoto.Texture">

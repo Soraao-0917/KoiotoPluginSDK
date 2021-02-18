@@ -157,8 +157,15 @@
             Returns Playable[] for play the chart.
             </summary>
             <param name="filePath">File's path.</param>
-            <param name="courses">Selected course.</param>
-            <returns>Playable[], ChartInfo</returns>
+            <param name="courses">Selected course. Length is number of player.</param>
+            <returns>Playable[]</returns>
+        </member>
+        <member name="M:Koioto.Plugin.IFileReadable.GetChartInfo(System.String)">
+            <summary>
+            Returns infomation of chart.
+            </summary>
+            <param name="filePath">File's path.</param>
+            <returns>ChartInfo.</returns>
         </member>
         <member name="M:Koioto.Plugin.IFileReadable.GetSelectable(System.String)">
             <summary>

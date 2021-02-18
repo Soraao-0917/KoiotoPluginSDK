@@ -915,8 +915,8 @@
             <summary>
             プレイヤー人数に応じてTを返す。
             0を引数に指定すると、シングルプレイの1Pが返される。
-            1を引数に指定すると、ダブルプレイの1Pが返される。
-            2を引数に指定すると、ダブルプレイの2Pが返される。
+            プレイヤー人数が2以上の時に0を引数に指定すると、ダブルプレイの1Pが返される。
+            プレイヤー人数が2以上の時に1を引数に指定すると、ダブルプレイの2Pが返される。
             </summary>
             <param name="player">プレイヤー人数。</param>
             <returns>T。</returns>
@@ -961,6 +961,11 @@
             サウンドモード。
             </summary>
         </member>
+        <member name="P:Koioto.Support.Settings.Discord">
+            <summary>
+            Discord。
+            </summary>
+        </member>
         <member name="P:Koioto.Support.Settings.Player">
             <summary>
             プレイヤー数。
@@ -996,9 +1001,19 @@
             自動再生するかどうか。
             </summary>
         </member>
+        <member name="P:Koioto.Support.Settings.ActiveHotReload">
+            <summary>
+            アクティブ ホットリロード
+            </summary>
+        </member>
         <member name="P:Koioto.Support.Settings.KeepSongListScrolling">
             <summary>
             選曲画面のスクロール位置を記憶するかどうか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.PlayerBackgroundEffect">
+            <summary>
+            再生画面の背景エフェクトの設定。
             </summary>
         </member>
         <member name="P:Koioto.Support.PlayingOption.AutoPlay">
@@ -1019,6 +1034,26 @@
         <member name="P:Koioto.Support.PlayingOption.ShowSENotes">
             <summary>
             SENotesを表示するか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Discord.Enable">
+            <summary>
+            Discord RPC を有効にするかどうか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Discord.ShowPlayingInfo">
+            <summary>
+            再生中の譜面の情報を表示するかどうか。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.BackgroundEffect.BlurLevel">
+            <summary>
+            ぼかしの強さ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.BackgroundEffect.Brightness">
+            <summary>
+            明るさ。
             </summary>
         </member>
         <member name="T:Koioto.Support.SoundManager">
