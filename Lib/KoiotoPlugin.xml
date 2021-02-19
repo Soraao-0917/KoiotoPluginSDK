@@ -65,13 +65,12 @@
             <param name="chip">Chip</param>
             <param name="player">Player</param>
         </member>
-        <member name="M:Koioto.Plugin.Overlay.OnRoll(Koioto.Support.FileReader.Chip,System.Int32,System.Boolean)">
+        <member name="M:Koioto.Plugin.Overlay.OnRoll(Koioto.Support.FileReader.Chip,System.Int32)">
             <summary>
             The method calls when rolling.
             </summary>
             <param name="chip">Chip</param>
             <param name="player">Player</param>
-            <param name="isDon">Whether it is a don.</param>
         </member>
         <member name="M:Koioto.Plugin.Overlay.OnBrokeBalloon(Koioto.Support.FileReader.Chip,System.Int32)">
             <summary>

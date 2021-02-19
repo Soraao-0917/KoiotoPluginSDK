@@ -109,6 +109,46 @@
             難易度。
             </summary>
         </member>
+        <member name="T:Koioto.Support.Extensions">
+            <summary>
+            拡張メソッド。
+            </summary>
+        </member>
+        <member name="M:Koioto.Support.Extensions.IsRoll(Koioto.Support.FileReader.Notes)">
+            <summary>
+            連打の音符であるか。
+            </summary>
+            <param name="note">音符の種類。</param>
+            <returns>連打開始、連打中、連打終了のいずれかどうか。</returns>
+        </member>
+        <member name="M:Koioto.Support.Extensions.IsDon(Koioto.Support.FileReader.Notes)">
+            <summary>
+            面の音符かどうか。
+            </summary>
+            <param name="note">音符の種類。</param>
+            <returns>Don、DONかどうか。</returns>
+        </member>
+        <member name="M:Koioto.Support.Extensions.IsKa(Koioto.Support.FileReader.Notes)">
+            <summary>
+            縁の音符かどうか。
+            </summary>
+            <param name="note">音符の種類。</param>
+            <returns>Ka、KAかどうか。</returns>
+        </member>
+        <member name="M:Koioto.Support.Extensions.IsBig(Koioto.Support.FileReader.Notes)">
+            <summary>
+            デカい音符かどうか。
+            </summary>
+            <param name="note">音符の種類。</param>
+            <returns>DON、KA、ROLLStartかどうか。</returns>
+        </member>
+        <member name="M:Koioto.Support.Extensions.IsComboContinuable(Koioto.Support.FileReader.Judge)">
+            <summary>
+            コンボ継続可能な判定かどうか。
+            </summary>
+            <param name="judge">判定。</param>
+            <returns>コンボが継続可能かどうか。</returns>
+        </member>
         <member name="T:Koioto.Support.FileReader.Chip">
             <summary>
             チップのクラス。
@@ -1312,7 +1352,21 @@
             <param name="tex">テクスチャ。</param>
             <param name="theme">NormalTexture。</param>
         </member>
+        <member name="M:Koioto.Support.Util.SetThemeToTexture(Amaoto.Texture[],Koioto.Support.Theme.NormalTexture)">
+            <summary>
+            テクスチャに NormalTexture 座標以外の設定値を割り当てる。
+            </summary>
+            <param name="tex">テクスチャ。</param>
+            <param name="theme">NormalTexture。</param>
+        </member>
         <member name="M:Koioto.Support.Util.SetThemeToTexture(Amaoto.Texture,Koioto.Support.Theme.SingleTexture)">
+            <summary>
+            テクスチャに SingleTexture 座標以外の設定値を割り当てる。
+            </summary>
+            <param name="tex">テクスチャ。</param>
+            <param name="theme">SingleTexture。</param>
+        </member>
+        <member name="M:Koioto.Support.Util.SetThemeToTexture(Amaoto.Texture[],Koioto.Support.Theme.SingleTexture)">
             <summary>
             テクスチャに SingleTexture 座標以外の設定値を割り当てる。
             </summary>
