@@ -108,11 +108,21 @@
             <param name="player">Player</param>
             <param name="section">Section</param>
         </member>
+        <member name="M:Koioto.Plugin.Overlay.OnSongSelect">
+            <summary>
+            The method calls when select song.
+            </summary>
+        </member>
         <member name="M:Koioto.Plugin.Overlay.OnPlayer(System.Int64)">
             <summary>
             The method calls when playing.
             </summary>
             <param name="sectionTickValue">Now section's value of counter</param>
+        </member>
+        <member name="M:Koioto.Plugin.Overlay.OnResult">
+            <summary>
+            The method calls when result.
+            </summary>
         </member>
         <member name="M:Koioto.Plugin.Overlay.OnChangedResolution(System.Drawing.Size)">
             <summary>

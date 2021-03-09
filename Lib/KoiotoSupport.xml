@@ -940,7 +940,12 @@
             テーマのディレクトリ。
             </summary>
         </member>
-        <member name="P:Koioto.Support.Bridge.PluginDir">
+        <member name="P:Koioto.Support.Bridge.ThemesDir">
+            <summary>
+            Themesディレクトリ。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Bridge.PluginsDir">
             <summary>
             プラグインのディレクトリ。
             </summary>
@@ -1024,6 +1029,16 @@
         <member name="P:Koioto.Support.Settings.JudgeBad">
             <summary>
             不可判定値。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.JudgeOffset">
+            <summary>
+            判定のオフセット。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Settings.NotesOffset">
+            <summary>
+            音符のオフセット。
             </summary>
         </member>
         <member name="P:Koioto.Support.Settings.Font">
@@ -1329,7 +1344,7 @@
             ユーティリティクラス。
             </summary>
         </member>
-        <member name="M:Koioto.Support.Util.ThemeInit``1(System.String)">
+        <member name="M:Koioto.Support.Util.ThemeInit``1(System.String,System.Boolean)">
             <summary>
             テーマのjsonファイルを読み込む。
             </summary>
