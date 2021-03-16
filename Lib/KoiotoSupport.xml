@@ -1061,9 +1061,9 @@
             アクティブ ホットリロード
             </summary>
         </member>
-        <member name="P:Koioto.Support.Settings.KeepSongListScrolling">
+        <member name="P:Koioto.Support.Settings.KeepSelectedSong">
             <summary>
-            選曲画面のスクロール位置を記憶するかどうか。
+            選曲画面の選択した曲を記憶するかどうか。
             </summary>
         </member>
         <member name="P:Koioto.Support.Settings.PlayerBackgroundEffect">
