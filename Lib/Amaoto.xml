@@ -821,6 +821,12 @@
             </summary>
             <param name="content">ボタンの中身。</param>
         </member>
+        <member name="M:Amaoto.GUI.Button.ChangeBackground(Amaoto.ITextureReturnable)">
+            <summary>
+            ボタンの背景を変更する。
+            </summary>
+            <param name="background">ボタンの背景。</param>
+        </member>
         <member name="M:Amaoto.GUI.Button.ChangeSize(System.Nullable{System.Int32},System.Nullable{System.Int32})">
             <summary>
             ボタンのサイズを変更する。
@@ -1355,12 +1361,15 @@
             タブを提供する。
             </summary>
         </member>
-        <member name="M:Amaoto.GUI.Tab.#ctor(Amaoto.GUI.DrawPart[],Amaoto.ITextureReturnable,Amaoto.ITextureReturnable[],System.Int32,System.Int32,System.Int32,System.Int32)">
+        <member name="M:Amaoto.GUI.Tab.#ctor(Amaoto.GUI.DrawPart[],Amaoto.ITextureReturnable,Amaoto.ITextureReturnable,Amaoto.FontRender,Amaoto.FontRender,System.String[],System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
             タブを提供する。
             </summary>
             <param name="children">タブ要素。</param>
-            <param name="tabBackground">タブの背景。</param>
+            <param name="activeTabTexture">アクティブなタブの背景。</param>
+            <param name="inactiveTabTexture">非アクティブなタブの背景。</param>
+            <param name="activeTabFont">アクティブなタブのFontRender。</param>
+            <param name="inactiveTabFont">非アクティブなタブのFontRender。</param>
             <param name="tabNames">タブ名。</param>
             <param name="tabWidth">タブの横幅。はみ出す場合は、スクロールできるようになる。</param>
             <param name="tabHeight">タブの縦幅。</param>
@@ -1772,13 +1781,15 @@
             </summary>
             <param name="bitmap">ビットマップ。</param>
         </member>
-        <member name="M:Amaoto.Texture.Draw(System.Double,System.Double,System.Nullable{System.Drawing.Rectangle})">
+        <member name="M:Amaoto.Texture.Draw(System.Double,System.Double,System.Nullable{System.Drawing.Rectangle},System.Boolean,System.Boolean)">
             <summary>
             描画します。
             </summary>
             <param name="x">X座標。</param>
             <param name="y">Y座標。</param>
             <param name="rectangle">描画範囲。</param>
+            <param name="reverseX">横方向に反転描画するか。</param>
+            <param name="reverseY">縦方向に反転描画するか。</param>
         </member>
         <member name="M:Amaoto.Texture.SaveAsPNG(System.String)">
             <summary>

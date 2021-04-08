@@ -204,6 +204,12 @@
             音符であるかどうか。
             </summary>
         </member>
+        <member name="P:Koioto.Support.FileReader.Chip.IsReversing">
+            <summary>
+            逆走する音符であるかどうか。
+            スクロール速度が 0 未満かどうかで判定する。
+            </summary>
+        </member>
         <member name="P:Koioto.Support.FileReader.Chip.IsHitted">
             <summary>
             このチップが叩かれたか・判定枠を通ったか。
@@ -1237,6 +1243,16 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:Koioto.Support.Theme.StringColor.ForeColor">
+            <summary>
+            文字色。
+            </summary>
+        </member>
+        <member name="P:Koioto.Support.Theme.StringColor.BackColor">
+            <summary>
+            縁色。
+            </summary>
+        </member>
         <member name="T:Koioto.Support.Theme.StringTexture">
             <summary>
             文字列テクスチャ。
@@ -1245,16 +1261,6 @@
         <member name="P:Koioto.Support.Theme.StringTexture.Font">
             <summary>
             文字のフォント。
-            </summary>
-        </member>
-        <member name="P:Koioto.Support.Theme.StringTexture.ForeColor">
-            <summary>
-            文字色。
-            </summary>
-        </member>
-        <member name="P:Koioto.Support.Theme.StringTexture.BackColor">
-            <summary>
-            縁色。
             </summary>
         </member>
         <member name="T:Koioto.Support.Theme.NumberTexture">
@@ -1395,10 +1401,36 @@
             <param name="theme">テーマの定義。</param>
             <returns>FontRender。</returns>
         </member>
+        <member name="M:Koioto.Support.Util.GetCustomFontRenderFromTheme(System.String,Koioto.Support.Theme.Font)">
+            <summary>
+            フォント名を指定してFontRenderを生成する。
+            フォントが存在しないと、Koioto標準のフォントで代替される。
+            </summary>
+            <param name="font">フォント名。</param>
+            <param name="theme">テーマの定義。</param>
+            <returns>FontRender。</returns>
+        </member>
+        <member name="M:Koioto.Support.Util.GetFontRenderFromTheme(Koioto.Support.Theme.Font,Koioto.Support.Theme.StringColor)">
+            <summary>
+            StringTextureを適用したFontRenderを生成する。
+            </summary>
+            <param name="font">フォントの定義。</param>
+            <param name="color">色の定義。</param>
+            <returns>FontRender。</returns>
+        </member>
         <member name="M:Koioto.Support.Util.GetFontRenderFromTheme(Koioto.Support.Theme.StringTexture)">
             <summary>
             StringTextureを適用したFontRenderを生成する。
             </summary>
+            <param name="theme">テーマの定義。</param>
+            <returns>FontRender。</returns>
+        </member>
+        <member name="M:Koioto.Support.Util.GetCustomFontRenderFromTheme(System.String,Koioto.Support.Theme.StringTexture)">
+            <summary>
+            フォント名を指定してStringTextureを適用したFontRenderを生成する
+            フォントが存在しないと、Koioto標準のフォントで代替される。
+            </summary>
+            <param name="font">フォント名。</param>
             <param name="theme">テーマの定義。</param>
             <returns>FontRender。</returns>
         </member>
@@ -1409,14 +1441,6 @@
             <param name="fontRender">FontRender</param>
             <param name="foreColor">文字色。</param>
             <param name="backColor">縁色。</param>
-        </member>
-        <member name="M:Koioto.Support.Util.GetFontRenderFromTheme(System.String,Koioto.Support.Theme.Font)">
-            <summary>
-            フォント名からFontRenderを生成する。
-            </summary>
-            <param name="fontName">フォント名。</param>
-            <param name="theme">テーマの定義。</param>
-            <returns>FontRender。</returns>
         </member>
         <member name="M:Koioto.Support.Util.GetDigitsFromLong(System.Int64)">
             <summary>
